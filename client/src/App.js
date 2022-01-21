@@ -8,10 +8,12 @@ import {
     Redirect,
     Router,
 } from 'react-router-dom';
+import {Box} from '@chakra-ui/react'
+import Homepage from './Homepage.js'
 
 function App() {
 
-    return <div>Welcome to CryptoNLP</div>;
+    return <Homepage/>;
 }
 
 export default App;
