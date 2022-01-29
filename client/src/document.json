@@ -21,13 +21,13 @@
                     {
                         "extType":"slot",
                         "slotValue":"Digital Asset",
-                        "text":" Uniswap Labs,"
+                        "text":" Uniswap Labs"
                     }
                 ]
             },
             {
                 "type":"normal",
-                "text":" the main developer behind one of the world's largest cryptocurrency exchanges, Uniswap, the Wall Street Journal reported on Friday, citing people familiar with the matter. Enforcement attorneys are looking for more information on how investors use Uniswap and the manner in which it is marketed, the report said. Uniswap did not immediately reply to a Reuters request for comment. "
+                "text":", the main developer behind one of the world's largest cryptocurrency exchanges, Uniswap, the Wall Street Journal reported on Friday, citing people familiar with the matter. Enforcement attorneys are looking for more information on how investors use Uniswap and the manner in which it is marketed, the report said. Uniswap did not immediately reply to a Reuters request for comment. "
             },
             {
                 "type":"extraction",
@@ -44,11 +44,11 @@
                     {
                         "extType":"slot",
                         "slotValue":"Digital Asset",
-                        "text":" Uniswap Labs,"
+                        "text":" Uniswap Labs"
                     },
                     {
                         "extType":"nonslot",
-                        "text":" comes amid heightened regulatory interest into cryptocurrencies "
+                        "text":" ,comes amid heightened regulatory interest into cryptocurrencies "
                     }
                 ]
             },

@@ -25,12 +25,15 @@ function TestPage() {
                         }
                         if(text.type == "extraction"){
                                 return (
-                                    <MotionBox whileHover={{ fontSize:"24px"}} as='span' color="blue.600">
+                                    <MotionBox display="inline" color="blue.600">
                                         {
                                             text.extArr.map((text) => {
                                                 if(text.extType == "slot"){
                                                     return (
-                                                        <MotionBox  color="blue.300" as="span">{text.text}</MotionBox>
+                                                        <MotionBox whileHover={{ fontSize:"24px"}} bgGradient='linear(to-l, #63B3ED, #2C5282)' bgColor="blue.500" color="white" as="span">
+                                                            {text.text}
+                                                            <Box as="span" fontSize="10px" bgColor="white" color="black" margin="5px">  {text.slotValue}</Box>
+                                                        </MotionBox>
                                                      )
                                                 }
                                                 else if(text.extType == "nonslot"){
