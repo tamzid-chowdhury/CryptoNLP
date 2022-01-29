@@ -23,12 +23,12 @@ function Article(props) {
                     }
                     if(text.type == "extraction"){
                             return (
-                                <MotionBox display="inline" color="blue.600">
+                                <MotionBox whileHover={{ fontSize:"23px"}} _hover={{ color:"blue.300"}} display="inline" color="blue.600">
                                     {
                                         text.extArr.map((text) => {
                                             if(text.extType == "slot"){
                                                 return (
-                                                    <MotionBox whileHover={{ fontSize:"24px"}} bgGradient='linear(to-l, #63B3ED, #2C5282)' bgColor="blue.500" color="white" as="span">
+                                                    <MotionBox bgGradient='linear(to-l, #63B3ED, #2C5282)' bgColor="blue.500" color="white" as="span">
                                                         {text.text}
                                                         <MotionBox as="span" fontSize="10px" bgColor="white" color="black" margin="5px">  {text.slotValue}</MotionBox>
                                                     </MotionBox>
@@ -36,7 +36,7 @@ function Article(props) {
                                             }
                                             else if(text.extType == "nonslot"){
                                                 return (
-                                                    <MotionBox whileHover={{ fontSize:"24px"}} _hover={{ color:"blue.300"}}  as="span">{text.text}</MotionBox>
+                                                    <MotionBox  as="span">{text.text}</MotionBox>
                                                     )
                                             }
 
