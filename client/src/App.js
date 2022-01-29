@@ -15,7 +15,7 @@ import TestPage from './TestPage';
 const App = () => {
 
   return (
-    <Box w='100%' h='750px' bgGradient='linear(to-t, #09203F, #537895)'>
+    <Box w='100%' h='100vh' bgGradient='linear(to-t, #09203F, #537895)'>
        <ParticleBackground/>
        <TestPage/>
     </Box>

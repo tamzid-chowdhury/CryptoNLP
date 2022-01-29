@@ -11,7 +11,7 @@ function TestPage() {
 
 
     return (
-        <Grid templateColumns="2fr 6fr 1fr 6fr 2fr">
+        <Grid templateColumns="2fr 6fr 1fr 6fr 2fr" h="100%">
             <Box></Box>
             <Article article={article1}/>
             <Box></Box>
