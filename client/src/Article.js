@@ -1,10 +1,13 @@
 import {React, useState} from 'react';
-import { Box, Text, Grid, Center, Icon, Tooltip } from '@chakra-ui/react';
+import { Box, Text, Grid, Center, Icon, Button } from '@chakra-ui/react';
 import {motion} from 'framer-motion';
+
 
 const MotionBox = motion(Box);
 
 function Article(props) {
+
+    const [view, setView] = useState("full");
 
     const textArray = props.article.textArr;
     const title = props.article.title;
@@ -12,7 +15,12 @@ function Article(props) {
 
     return (
         <MotionBox initial={{scale:0, opacity:0}} animate={{scale:1, opacity:1, duration:5}} whileHover={{ scale:1.1}} marginTop="60px" h="600px" bgColor="#1b222d" borderRadius="4%" overflow="scroll">
-            <Text bgGradient='linear(to-l, #63B3ED, #2C5282)' color="white" textAlign="center" marginTop="50px" fontSize="28px">{title}</Text>
+            {view == "full" ? 
+            <Box>
+            <Button colorScheme='blue' size='xs' position="relative" left="15px" top="7px" onClick={() => {setView("extractions")}}>
+                Extractions
+            </Button>
+            <Text bgGradient='linear(to-l, #63B3ED, #2C5282)' color="white" textAlign="center" marginTop="15px" fontSize="28px">{title}</Text>
             <Text margin="30px" color="white" fontSize="20px">
                 {
                     textArray.map((text) => {
@@ -48,6 +56,17 @@ function Article(props) {
                     })   
                 }
             </Text>
+            </Box>
+            :
+            <Box>
+            <Button colorScheme='blue' size='xs' position="relative" left="15px" top="7px"  onClick={() => {setView("full")}} >
+                Full Article
+            </Button>
+            <Text bgGradient='linear(to-l, #63B3ED, #2C5282)' color="white" textAlign="center" marginTop="15px" fontSize="28px">Extractions</Text>
+            <Text margin="30px" color="white" fontSize="20px">
+
+            </Text>
+            </Box>}
         </MotionBox>
     )
 }
