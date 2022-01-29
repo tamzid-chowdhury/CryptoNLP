@@ -1,0 +1,98 @@
+{
+    "article1": {
+        "title": "Document 1",
+        "textArr": [
+            {
+                "type":"normal",
+                "text":"The "
+            },
+            {
+                "type":"extraction",
+                "extArr": [
+                    {
+                        "extType":"slot",
+                        "slotValue":"Regulatory Agency",
+                        "text":"U.S. Securities and Exchange Commission (SEC)"
+                    },
+                    {
+                        "extType":"nonslot",
+                        "text":" is investigating "
+                    },
+                    {
+                        "extType":"slot",
+                        "slotValue":"Digital Asset",
+                        "text":" Uniswap Labs,"
+                    }
+                ]
+            },
+            {
+                "type":"normal",
+                "text":" the main developer behind one of the world's largest cryptocurrency exchanges, Uniswap, the Wall Street Journal reported on Friday, citing people familiar with the matter. Enforcement attorneys are looking for more information on how investors use Uniswap and the manner in which it is marketed, the report said. Uniswap did not immediately reply to a Reuters request for comment. "
+            },
+            {
+                "type":"extraction",
+                "extArr": [
+                    {
+                        "extType":"slot",
+                        "slotValue":"Regulatory Agency",
+                        "text":"SEC's"
+                    },
+                    {
+                        "extType":"nonslot",
+                        "text":" probe into "
+                    },
+                    {
+                        "extType":"slot",
+                        "slotValue":"Digital Asset",
+                        "text":" Uniswap Labs,"
+                    },
+                    {
+                        "extType":"nonslot",
+                        "text":" comes amid heightened regulatory interest into cryptocurrencies "
+                    }
+                ]
+            },
+            {
+                "type":"normal",
+                "text":"and the digital asset market, with Chair Gary Gensler calling on "
+            },
+            {
+                "type":"extraction",
+                "extArr": [
+                    {
+                        "extType":"slot",
+                        "slotValue":"Regulatory Agency",
+                        "text":"Congress"
+                    },
+                    {
+                        "extType":"nonslot",
+                        "text":" last month to give the agency more authority to better police crypto trading "
+                    }
+                ]
+            },
+            {
+                "type":"normal",
+                "text":" and lending. Uniswap is a crypto marketplace for decentralized finance or DeFi developers, traders and liquidity providers. DeFi is an open network and works on a peer-to-peer system, where transactions are not routed through a centralized system such as a bank or a brokerage. Gensler in August had called on lawmakers to give the "
+            },
+            {
+                "type":"extraction",
+                "extArr": [
+                    {
+                        "extType":"slot",
+                        "slotValue":"Regulatory Agency",
+                        "text":"SEC"
+                    },
+                    {
+                        "extType":"nonslot",
+                        "text":" more power to oversee DeFi platforms,"
+                    }
+                ]
+            },
+            {
+                "type":"normal",
+                "text":" which are not regulated in the United States."
+            }
+            
+        ]
+    }
+}

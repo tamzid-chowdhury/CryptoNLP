@@ -8,12 +8,18 @@ import {
     Redirect,
     Router,
 } from 'react-router-dom';
-import {Box} from '@chakra-ui/react'
-import Homepage from './Homepage.js'
+import {Box, Text, Grid} from '@chakra-ui/react'
+import ParticleBackground from './ParticleBackground';
+import TestPage from './TestPage';
 
-function App() {
+const App = () => {
 
-    return <Homepage/>;
-}
+  return (
+    <Box w='100%' h='750px' bgGradient='linear(to-t, #09203F, #537895)'>
+       <ParticleBackground/>
+       <TestPage/>
+    </Box>
+  );
+};
 
-export default App;
+export default App

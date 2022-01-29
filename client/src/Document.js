@@ -14,7 +14,7 @@ function Document() {
     })
 
     return (
-        <Box h="800px" margin="20px" onClick={() => set(state => !state)}>
+        <Box h="80px" margin="20px" onClick={() => set(state => !state)}>
         <a.div
             className={`${styles.c} ${styles.back}`}
             style={{ opacity: opacity.to(o => 1 - o), transform}}
