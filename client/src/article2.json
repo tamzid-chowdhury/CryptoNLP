@@ -1,0 +1,99 @@
+{
+    "article2": {
+        "title": "Circle the Digital Asset",
+        "textArr": [
+            {
+                "type":"extraction",
+                "extArr": [
+                    {
+                        "extType":"slot",
+                        "slotValue":"Digital Asset",
+                        "text":"Circle"
+                    },
+                    {
+                        "extType":"nonslot",
+                        "text":", the cryptocurrency company and stablecoin issuer, revealed through a public filing that it is under investigation by the "
+                    },
+                    {
+                        "extType":"slot",
+                        "slotValue":"Regulatory Agency",
+                        "text":"Securities and Exchange Commission"
+                    }
+                ]
+            },
+            {
+                "type":"normal",
+                "text":". The news outlet Coindesk first reported the investigation. A Circle spokesperson told Yahoo Finance that"
+            },
+            {
+                "type":"extraction",
+                "extArr": [
+                    {
+                        "extType":"slot",
+                        "slotValue":"Digital Asset",
+                        "text":"Circle "
+                    },
+                    {
+                        "extType":"nonslot",
+                        "text":" is cooperating in an ongoing "
+                    },
+                    {
+                        "extType":"slot",
+                        "slotValue":"Regulatory Agency",
+                        "text":" SEC "
+                    },
+                    {
+                        "extType":"nonslot",
+                        "text":" investigation. "
+                    }
+                ]
+            },
+            {
+                "type":"normal",
+                "text":" Our October S4 filing references a continuation to the July 2021 SEC subpoena previously disclosed in our August S4 filing. In its most recent public filings, "
+            },
+            {
+                "type":"extraction",
+                "extArr": [
+                    {
+                        "extType":"slot",
+                        "slotValue":"Digital Asset",
+                        "text":"Circle "
+                    },
+                    {
+                        "extType":"nonslot",
+                        "text":" stated that in July 2021 it received an investigative subpoena from the "
+                    },
+                    {
+                        "extType":"slot",
+                        "slotValue":"Regulatory Agency",
+                        "text":"SEC"
+                    }
+                ]
+            },
+            {
+                "type":"normal",
+                "text":"  Enforcement Division requesting documents and information regarding certain of our holdings, customer programs, and operations. The filing went on to say that "
+            },
+            {
+                "type":"extraction",
+                "extArr": [
+                    {
+                        "extType":"slot",
+                        "slotValue":"Digital Asset",
+                        "text":"Circle "
+                    },
+                    {
+                        "extType":"nonslot",
+                        "text":" is fully cooperating with the regulator's investigation"
+                    }
+                ]
+            },
+            {
+                "type":"normal",
+                "text":" which are not regulated in the United States."
+            }
+            
+        ]
+    }
+}
