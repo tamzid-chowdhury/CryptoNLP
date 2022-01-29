@@ -36,7 +36,7 @@ function Article(props) {
                                             }
                                             else if(text.extType == "nonslot"){
                                                 return (
-                                                    <MotionBox  as="span">{text.text}</MotionBox>
+                                                    <MotionBox whileHover={{ fontSize:"24px"}} _hover={{ color:"blue.300"}}  as="span">{text.text}</MotionBox>
                                                     )
                                             }
 
