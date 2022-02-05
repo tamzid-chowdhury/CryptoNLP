@@ -15,6 +15,7 @@ function Article(props) {
         hidden: {
           x: "-100vh",
          transition: {
+            type: "spring",
             duration: 0.7,
             ease: [0.83, 0, 0.17, 1]
           }
@@ -22,7 +23,48 @@ function Article(props) {
         visible: {
           x: "0",
           transition: {
+            type: "spring",
             duration: 0.7,
+            ease: [0.83, 0, 0.17, 1]
+          }
+        }
+      };
+
+      const metadataVariants = {
+        hidden: {
+          x: "100vh",
+         transition: {
+            type: "spring",
+            duration: 0.7,
+            ease: [0.83, 0, 0.17, 1]
+          }
+        },
+        visible: {
+          x: "0",
+          transition: {
+            type: "spring",
+            duration: 0.7,
+            ease: [0.83, 0, 0.17, 1]
+          }
+        }
+      };
+
+      const article1Variants = {
+        hidden: {
+          scale: 0,
+          opacity:0,
+         transition: {
+            type: "spring",
+            duration: 1,
+            ease: [0.83, 0, 0.17, 1]
+          }
+        },
+        visible: {
+          scale: 1,
+          opacity: 1,
+          transition: {
+            type: "spring",
+            duration: 1,
             ease: [0.83, 0, 0.17, 1]
           }
         }
@@ -36,7 +78,7 @@ function Article(props) {
     console.log(extractions)
 
     return (
-        <MotionBox initial={{scale:0, opacity:0}} animate={{scale:1, opacity:1, duration:5}} whileHover={{ scale:1.1}} marginTop="6vh" w="38vw" h="80vh" bgColor="#1b222d" borderRadius="4%" overflow="scroll">
+        <MotionBox initial={{scale:0, opacity:0}} animate={{scale:1, opacity:1}} transition={{duration:0.2}} whileHover={{ scale:1.1}} marginTop="6vh" w="38vw" h="80vh" bgColor="#1b222d" borderRadius="4%" overflow="scroll">
             {view == "full" ? 
             <Box>
             <Button colorScheme="blue" top="8px" left="15px" size='xs' onClick={() => {setView("extractions")}}>
@@ -44,7 +86,7 @@ function Article(props) {
             </Button>
                 <MotionBox variants={articleVariants} initial="hidden" animate="visible" bgGradient='linear(to-l, #63B3ED, #2C5282)' color="white" textAlign="center" marginTop="17px" fontSize="28px">{title}</MotionBox>
                 <AnimatePresence>
-                    {<MotionBox variants={articleVariants} initial="hidden" animate="visible" exit="hidden" margin="30px" color="white" fontSize="22px">
+                    {<MotionBox variants={article1Variants} initial="hidden" animate="visible" exit="hidden" margin="30px" color="white" fontSize="22px">
                         {
                             textArray.map((text) => {
                             if(text.type == "normal"){
@@ -87,7 +129,7 @@ function Article(props) {
             <Button colorScheme="blue" top="8px" left="15px" size='xs' onClick={() => {setView("full")}} >
                 View Full Article
             </Button>
-            <MotionText variants={articleVariants} initial="hidden" animate="visible"  bgGradient='linear(to-l, #63B3ED, #2C5282)' color="white" textAlign="center" marginTop="17px" fontSize="28px">Extractions</MotionText>
+            <MotionText variants={metadataVariants} initial="hidden" animate="visible"  bgGradient='linear(to-l, #63B3ED, #2C5282)' color="white" textAlign="center" marginTop="17px" fontSize="28px">Extractions</MotionText>
             <AnimatePresence>
             <MotionText variants={articleVariants} initial="hidden" animate="visible" margin="30px" color="white">
                 <Accordion allowMultiple>
@@ -144,7 +186,7 @@ function Article(props) {
                 </Accordion>     
             </MotionText>
             </AnimatePresence>
-            <MotionBox initial={{x:"100vh"}} animate={{x:0}} transition={{ duration: 0.3 }} color="white">
+            <MotionBox variants={metadataVariants} initial="hidden" animate="visible" color="white">
                 <Center><Text textAlign="center" opacity="50%" fontSize="17px">Metadata</Text></Center>
                 <Center><Box bgColor="white" h="1px" opacity="20%" w="50%" mb="10px"></Box></Center>
                 <Center>
