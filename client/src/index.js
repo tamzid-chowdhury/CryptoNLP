@@ -4,6 +4,14 @@ import App from './App';
 import { ApolloProvider, ApolloClient, InMemoryCache } from '@apollo/client';
 
 import { ChakraProvider } from '@chakra-ui/react'
+import { extendTheme } from '@chakra-ui/react'
+
+const theme = extendTheme({
+  fonts: {
+    heading: 'Open Sans',
+    body: 'Raleway',
+  },
+})
 
 const cache = new InMemoryCache();
 
@@ -17,7 +25,7 @@ const client = new ApolloClient({
 ReactDOM.render(
     <React.StrictMode>
         <ApolloProvider client={client}>
-            <ChakraProvider>
+            <ChakraProvider theme={theme}>
                 <App />
             </ChakraProvider>
         </ApolloProvider>

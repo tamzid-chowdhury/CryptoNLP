@@ -11,6 +11,7 @@ import {
 import {Box, Text, Grid} from '@chakra-ui/react'
 import ParticleBackground from './ParticleBackground';
 import TestPage from './TestPage';
+import './App.css'
 
 const App = () => {
 

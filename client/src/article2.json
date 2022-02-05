@@ -12,7 +12,7 @@
                     },
                     {
                         "extType":"nonslot",
-                        "text":", the cryptocurrency company and stablecoin issuer, revealed through a public filing that it is under investigation by the "
+                        "text":", the cryptocurrency company and stablecoin issuer, revealed through a public filing that it is currently under investigation by the "
                     },
                     {
                         "extType":"slot",
@@ -23,7 +23,7 @@
             },
             {
                 "type":"normal",
-                "text":". The news outlet Coindesk first reported the investigation. A Circle spokesperson told Yahoo Finance that "
+                "text":". The news outlet named Coindesk first reported the investigation. A Circle spokesperson told Yahoo Finance that "
             },
             {
                 "type":"extraction",
@@ -94,6 +94,68 @@
                 "text":" which are not regulated in the United States."
             }
             
+        ],
+        "extractions":
+        [
+            {
+                "text":"U.S. Securities and Exchange Commission (SEC) is investigating Uniswap Labs",
+                "details":
+                [
+                    {
+                        "slot":"U.S. Securities and Exchange Commission",
+                        "slotValue":"Regulatory Agency"
+                    },
+                    {
+                        "slot":"Uniswap Labs",
+                        "slotValue":"Digital Asset"
+                    }
+                ],
+                "impact":
+                [
+                    {
+                        "property":"Regulation",
+                        "propertyValue": "Increased"
+                    }
+                ]
+            },
+            {
+                "text":"SEC's probe into Uniswap Labs comes amid a heightened regulatory interest into crytocurrencies.",
+                "details":
+                [
+                    {
+                        "slot":"Uniswap Labs",
+                        "slotValue":"Digital Asset"
+                    },
+                    {
+                        "slot":"SEC's",
+                        "slotValue":"Regulatory Agency"
+                    }
+                ],
+                "impact":
+                [
+                    {
+                        "property":"Regulation",
+                        "propertyValue": "Increased"
+                    }
+                ]
+            },
+            {
+                "text":"Congress last month to give the agency more authority to better police crypto trading.",
+                "details":
+                [
+                    {
+                        "slot":"Congress",
+                        "slotValue":"Regulatory Agency"
+                    }
+                ],
+                "impact":
+                [
+                    {
+                        "property":"Regulation",
+                        "propertyValue": "Increased"
+                    }
+                ]
+            }
         ]
     }
 }
