@@ -64,8 +64,7 @@ function Article(props) {
           opacity: 1,
           transition: {
             type: "spring",
-            duration: 1,
-            ease: [0.83, 0, 0.17, 1]
+            duration: 1
           }
         }
       };
