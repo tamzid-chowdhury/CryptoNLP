@@ -135,7 +135,7 @@
                 [
                     {
                         "property":"Regulation",
-                        "propertyValue": "Increased"
+                        "propertyValue": "Decreased"
                     }
                 ]
             },
@@ -152,7 +152,7 @@
                 [
                     {
                         "property":"Regulation",
-                        "propertyValue": "Increased"
+                        "propertyValue": "Decreased"
                     }
                 ]
             }

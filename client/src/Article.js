@@ -101,14 +101,14 @@ function Article(props) {
                                             </List>
                                         </GridItem>
                                         <GridItem>
-                                        <Text>Impact: </Text>
+                                        <Text pb={2}>Impact: </Text>
                                             <List spacing={3}>
                                             {
                                                 extraction.impact.map((impact) => {
                                                     return (
                                                         <ListItem fontSize="14px">
-                                                            <ListIcon as={MdCheckCircle} color='green.500' />
-                                                            <Box as="span">{impact.property}</Box>  <Box as="span" fontSize="18px" color="green.300">({impact.propertyValue})</Box>
+                                                            <ListIcon as={MdCheckCircle} color={impact.propertyValue == "Increased" ? "green.500":"red.500"} />
+                                                            <Box as="span">{impact.property}</Box>  <Box as="span" fontSize="18px" color={impact.propertyValue == "Increased" ? "green.300":"red"}>({impact.propertyValue})</Box>
                                                         </ListItem>
                                                     )
                                                 })
