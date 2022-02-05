@@ -11,6 +11,23 @@ function Article(props) {
 
     const [view, setView] = useState("full");
 
+    const articleVariants = {
+        hidden: {
+          x: "-100vh",
+         transition: {
+            duration: 0.7,
+            ease: [0.83, 0, 0.17, 1]
+          }
+        },
+        visible: {
+          x: "0",
+          transition: {
+            duration: 0.7,
+            ease: [0.83, 0, 0.17, 1]
+          }
+        }
+      };
+
     const textArray = props.article.textArr;
     const title = props.article.title;
     const extractions = props.article.extractions;
@@ -25,51 +42,54 @@ function Article(props) {
             <Button colorScheme="blue" top="8px" left="15px" size='xs' onClick={() => {setView("extractions")}}>
                 View Extractions
             </Button>
-            <MotionBox initial={{x:"-100vh"}} animate={{x:0}} transition={{ duration: 0.3 }} bgGradient='linear(to-l, #63B3ED, #2C5282)' color="white" textAlign="center" marginTop="17px" fontSize="28px">{title}</MotionBox>
-                {<MotionBox initial={{x:"-100vh"}} animate={{x:0}} transition={{ duration: 0.3 }} margin="30px" color="white" fontSize="22px">
-                    {
-                        textArray.map((text) => {
-                        if(text.type == "normal"){
-                            return (
-                                <span>{text.text}</span>
-                            )
-                        }
-                        if(text.type == "extraction"){
+                <MotionBox variants={articleVariants} initial="hidden" animate="visible" bgGradient='linear(to-l, #63B3ED, #2C5282)' color="white" textAlign="center" marginTop="17px" fontSize="28px">{title}</MotionBox>
+                <AnimatePresence>
+                    {<MotionBox variants={articleVariants} initial="hidden" animate="visible" exit="hidden" margin="30px" color="white" fontSize="22px">
+                        {
+                            textArray.map((text) => {
+                            if(text.type == "normal"){
                                 return (
-                                    <MotionBox display="inline" color="blue.200">
-                                        {
-                                            text.extArr.map((text) => {
-                                                if(text.extType == "slot"){
-                                                    return (
-                                                        <Tooltip bgColor="#4b8ae1" color="white" label={text.slotValue} placement='auto'>
-                                                        <MotionBox whileHover={{ fontSize:"23px"}} color="#4b8ae1" as="span">
-                                                            {text.text}
-                                                        </MotionBox>
-                                                        </Tooltip>
-                                                        )
-                                                }
-                                                else if(text.extType == "nonslot"){
-                                                    return (
-                                                        <MotionBox  as="span">{text.text}</MotionBox>
-                                                        )
-                                                }
-
-                                            })
-                                        }
-                                    </MotionBox>
+                                    <span>{text.text}</span>
                                 )
+                            }
+                            if(text.type == "extraction"){
+                                    return (
+                                        <MotionBox display="inline" color="blue.200">
+                                            {
+                                                text.extArr.map((text) => {
+                                                    if(text.extType == "slot"){
+                                                        return (
+                                                            <Tooltip bgColor="#4b8ae1" color="white" label={text.slotValue} placement='auto'>
+                                                            <MotionBox whileHover={{ fontSize:"23px"}} color="#4b8ae1" as="span">
+                                                                {text.text}
+                                                            </MotionBox>
+                                                            </Tooltip>
+                                                            )
+                                                    }
+                                                    else if(text.extType == "nonslot"){
+                                                        return (
+                                                            <MotionBox  as="span">{text.text}</MotionBox>
+                                                            )
+                                                    }
+
+                                                })
+                                            }
+                                        </MotionBox>
+                                    )
+                            }
+                            })   
                         }
-                        })   
-                    }
-                </MotionBox>}
+                    </MotionBox>}
+                </AnimatePresence>
             </Box>
             :
             <Box>
             <Button colorScheme="blue" top="8px" left="15px" size='xs' onClick={() => {setView("full")}} >
                 View Full Article
             </Button>
-            <MotionText initial={{x:"100vh"}} animate={{x:0}} transition={{ duration: 0.3 }} bgGradient='linear(to-l, #63B3ED, #2C5282)' color="white" textAlign="center" marginTop="17px" fontSize="28px">Extractions</MotionText>
-            <MotionText initial={{x:"100vh"}} animate={{x:0}} transition={{ duration: 0.3 }} margin="30px" color="white">
+            <MotionText variants={articleVariants} initial="hidden" animate="visible"  bgGradient='linear(to-l, #63B3ED, #2C5282)' color="white" textAlign="center" marginTop="17px" fontSize="28px">Extractions</MotionText>
+            <AnimatePresence>
+            <MotionText variants={articleVariants} initial="hidden" animate="visible" margin="30px" color="white">
                 <Accordion allowMultiple>
                     {
                         extractions.map((extraction) => {
@@ -123,6 +143,7 @@ function Article(props) {
                     }  
                 </Accordion>     
             </MotionText>
+            </AnimatePresence>
             <MotionBox initial={{x:"100vh"}} animate={{x:0}} transition={{ duration: 0.3 }} color="white">
                 <Center><Text textAlign="center" opacity="50%" fontSize="17px">Metadata</Text></Center>
                 <Center><Box bgColor="white" h="1px" opacity="20%" w="50%" mb="10px"></Box></Center>
