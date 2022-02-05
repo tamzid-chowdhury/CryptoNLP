@@ -14,6 +14,7 @@ function Article(props) {
     const textArray = props.article.textArr;
     const title = props.article.title;
     const extractions = props.article.extractions;
+    const metadata = props.article.metadata; 
     console.log(textArray)
     console.log(extractions)
 
@@ -122,6 +123,16 @@ function Article(props) {
                     }  
                 </Accordion>     
             </MotionText>
+            <MotionBox initial={{x:"100vh"}} animate={{x:0}} transition={{ duration: 0.3 }} color="white">
+                <Center><Text textAlign="center" opacity="50%" fontSize="17px">Metadata</Text></Center>
+                <Center><Box bgColor="white" h="1px" opacity="20%" w="50%" mb="10px"></Box></Center>
+                <Center>
+                    <Text fontSize="18px">{metadata.headline}</Text>
+                </Center>
+                <Center>
+                    <Text marginRight="10px">Date: {metadata.date}</Text><Text>Source: {metadata.source}</Text>
+                </Center>
+            </MotionBox>
             </Box>}
         </MotionBox>
     )
