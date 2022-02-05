@@ -23,7 +23,7 @@ function Article(props) {
             {view == "full" ? 
             <Box>
             <Button colorScheme="blue" top="8px" left="10px" size='xs' onClick={() => {setView("extractions")}}>
-                Extractions
+                View Extractions
             </Button>
             <MotionBox initial={{x:"-100vh"}} animate={{x:0}} transition={{ duration: 0.3 }} bgGradient='linear(to-l, #63B3ED, #2C5282)' color="white" textAlign="center" marginTop="17px" fontSize="28px">{title}</MotionBox>
                 {<MotionBox initial={{x:"-100vh"}} animate={{x:0}} transition={{ duration: 0.3 }} margin="30px" color="white" fontSize="22px">
@@ -66,7 +66,7 @@ function Article(props) {
             :
             <Box>
             <Button colorScheme="blue" top="8px" left="10px" size='xs' onClick={() => {setView("full")}} >
-                Full Article
+                View Full Article
             </Button>
             <MotionText initial={{x:"100vh"}} animate={{x:0}} transition={{ duration: 0.3 }} bgGradient='linear(to-l, #63B3ED, #2C5282)' color="white" textAlign="center" marginTop="17px" fontSize="28px">Extractions</MotionText>
             <MotionText initial={{x:"100vh"}} animate={{x:0}} transition={{ duration: 0.3 }} margin="30px" color="white">
