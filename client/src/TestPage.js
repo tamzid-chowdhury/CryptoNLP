@@ -85,13 +85,13 @@ function TestPage() {
             </Grid>
             <Grid templateColumns="2fr 6fr 1fr 6fr 2fr">
                 <Box></Box>
-                <MotionBox animate={animation} ref={ref} w="38vw" h="45vh" marginTop="80px" bgColor="#1b222d" borderRadius="4%">
+                <MotionBox whileHover={{ scale:1.1}} animate={animation} ref={ref} w="38vw" h="45vh" marginTop="10px" bgColor="#202835" borderRadius="4%">
                     <Box margin="25px">
                     <BarChart1></BarChart1>
                     </Box>
                 </MotionBox>
                 <Box></Box>
-                <MotionBox animate={animation} ref={ref} w="38vw" h="45vh" marginTop="10px" bgColor="#1b222d" borderRadius="4%">
+                <MotionBox whileHover={{ scale:1.1}} animate={animation} ref={ref} w="38vw" h="45vh" marginTop="10px" bgColor="#1b222d" borderRadius="4%">
                     <Box margin="25px">
                     <BarChart1></BarChart1>
                     </Box>

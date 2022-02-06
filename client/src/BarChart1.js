@@ -41,19 +41,19 @@ export const data = {
   datasets: [
     {
       label: 'Positive',
-      data: labels.map(() => Math.random() * (80 - 40) + 40),
+      data: labels.map(() => Math.round(Math.random() * (80 - 40) + 40)),
       borderColor: '	rgb(173, 216, 230)',
       backgroundColor: 'rgb(173, 216, 230, 0.5)',
     },
     {
       label: 'Negative',
-      data: labels.map(() => Math.random() * (650 - 400) + 400),
+      data: labels.map(() => Math.round(Math.random() * (650 - 400) + 400)),
       borderColor: '#C70039 ',
       backgroundColor: 'rgb(199, 0, 57,0.5) ',
     },
     {
       label: 'Neutral',
-      data: labels.map(() => Math.random() * (2600 - 1800) + 1800),
+      data: labels.map(() => Math.round(Math.random() * (2600 - 1800) + 1800)),
       borderColor: '#FFC300',
       backgroundColor: 'rgb(255, 195, 0, 0.5)',
     }
