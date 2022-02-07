@@ -6,6 +6,7 @@ import {article2} from "./article2.json";
 import Article from './Article'
 import ChartContainer from './ChartContainer.js'
 import BarChart1 from './BarChart1'
+import BarChart2 from './BarChart2'
 import { Bar } from 'react-chartjs-2';
 import { useInView } from 'react-intersection-observer'
 
@@ -17,18 +18,56 @@ function TestPage() {
         threshold: 0.2
     });
 
+    const [showGraphs, setShowGraphs] = useState(false);
+
+    useEffect(() => {
+        if(inView){
+            setShowGraphs(true)
+        }
+        else{
+            setShowGraphs(false)
+        }
+        
+    }, [inView])
+
     const animation = useAnimation();
+    const animation1 = useAnimation();
 
     useEffect(() => {
         if(inView){
             animation.start({
-                scale: 1,
-                transition: 'spring', duration: 1, bounce: 0.3
+                scale: 1.1,
+                y: 0,
+                transition: {
+                    type: "spring",
+                    duration: 1,
+                    ease: [0.83, 0, 0.17, 1],
+                    y: {
+                        delay: 0.1
+                    }
+                }
+            })
+            animation1.start({
+                scale: 1.1,
+                y: 0,
+                transition: {
+                    type: "spring",
+                    duration: 1,
+                    ease: [0.83, 0, 0.17, 1],
+                    y: {
+                        delay: 0.1
+                    }
+                }
             })
         }
         if(!inView){
             animation.start({
-                scale: 0
+                scale: 0.8,
+                y:0
+            })
+            animation1.start({
+                scale: 0.8,
+                y:0
             })
         }
         console.log("use effect inView=", inView)
@@ -83,17 +122,17 @@ function TestPage() {
                 <Article article={article2}/>
                 <Box></Box>
             </Grid>
-            <Grid templateColumns="2fr 6fr 1fr 6fr 2fr">
+            <Grid templateColumns="2fr 8fr 2fr 8fr 2fr">
                 <Box></Box>
-                <MotionBox whileHover={{ scale:1.1}} animate={animation} ref={ref} w="38vw" h="45vh" marginTop="10px" bgColor="#202835" borderRadius="4%">
+                <MotionBox whileHover={{ scale:1.2}} animate={animation} ref={ref} w="38vw" h="45vh" marginTop="10px" bgColor="#202835" borderRadius="4%">
                     <Box margin="25px">
-                    <BarChart1></BarChart1>
+                    {showGraphs && <BarChart1></BarChart1>}
                     </Box>
                 </MotionBox>
                 <Box></Box>
-                <MotionBox whileHover={{ scale:1.1}} animate={animation} ref={ref} w="38vw" h="45vh" marginTop="10px" bgColor="#1b222d" borderRadius="4%">
+                <MotionBox whileHover={{ scale:1.2}} animate={animation1} ref={ref} w="38vw" h="45vh" marginTop="10px" bgColor="#1b222d" borderRadius="4%">
                     <Box margin="25px">
-                    <BarChart1></BarChart1>
+                    {showGraphs && <BarChart2></BarChart2>}
                     </Box>
                 </MotionBox>
                 <Box></Box>
