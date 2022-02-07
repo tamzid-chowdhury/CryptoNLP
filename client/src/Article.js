@@ -77,7 +77,7 @@ function Article(props) {
     console.log(extractions)
 
     return (
-        <MotionBox initial={{scale:0, opacity:0}} animate={{scale:1, opacity:1}} transition={{duration:0.2}} whileHover={{ scale:1.1}} marginTop="6vh" w="38vw" h="80vh" bgColor="#1b222d" borderRadius="4%" overflow="scroll">
+        <MotionBox initial={{scale:0, opacity:0}} animate={{scale:1, opacity:1}} transition={{duration:0.25}} whileHover={{ scale:1.1}} marginTop="6vh" w="38vw" h="80vh" bgColor="#1b222d" borderRadius="4%" overflow="scroll">
             {view == "full" ? 
             <Box>
             <Button colorScheme="blue" top="8px" left="15px" size='xs' onClick={() => {setView("extractions")}}>
