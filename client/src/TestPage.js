@@ -9,9 +9,8 @@ import BarChart1 from './BarChart1'
 import BarChart2 from './BarChart2'
 import { Bar } from 'react-chartjs-2';
 import { useInView } from 'react-intersection-observer'
-import {faker} from '@faker-js/faker'
 import "react-tabulator/lib/styles.css"; // default theme
-import "react-tabulator/css/materialize/tabulator_materialize.min.css"; // meterialize
+import "react-tabulator/css/materialize/tabulator_materialize.min.css";// meterialize
 
 // for React 16.4.x use: import { ReactTabulator }
 import { ReactTabulator } from "react-tabulator"; // for React 15.x
@@ -149,38 +148,106 @@ function TestPage() {
       };
 
       const columns = [
-        { title: "Name", field: "name", width: 150, minWidth: 100, responsive: 0 },
-        { title: "Favourite Color", field: "color", minWidth: 100, responsive: 2 },
-        { title: "Date Of Birth", field: "dob", minWidth: 100, responsive: 2 },
-        {
-          title: "Passed?",
-          field: "passed",
-          align: "center",
-          formatter: "tickCross",
-          minWidth: 100,
-          responsive: 0
-        }
+        { title: "Name", field: "name", width: 150 },
+        { title: "Age", field: "age" },
+        { title: "Favourite Color", field: "color" },
+        { title: "Date Of Birth", field: "dob" }
       ];
 
-      const generator = (schema, min = 1, max) => {
-        max = max || min;
-        return Array.from({ length: faker.random.number({ min, max }) }).map(() =>
-          Object.keys(schema).reduce((entity, key) => {
-            entity[key] = faker.fake(schema[key]);
-            return entity;
-          }, {})
-        );
-      };
-
-      const clientsSchema = {
-        name: "{{name.firstName}}",
-        color: "{{internet.color}}",
-        dob: "{{date.recent}}",
-        passed: "{{random.boolean}}"
-      };
-      
-      const data = generator(clientsSchema, 10, 10);
-
+      const data = [
+        {
+          id: 1,
+          name: "Oli Bob",
+          age: "12",
+          color: "blue",
+          dob: "01/01/1980"
+        },
+        {
+          id: 2,
+          name: "Mary May",
+          age: "1",
+          color: "green",
+          dob: "12/05/1989"
+        },
+        {
+          id: 5,
+          name: "Margret Marmajuke",
+          age: "16",
+          color: "yellow",
+          dob: "07/01/1999",
+        },
+        {
+          id: 6,
+          name: "Van Ng",
+          age: "37",
+          color: "green",
+          dob: "06/10/1982",
+        },
+        {
+          id: 7,
+          name: "Duc Ng",
+          age: "37",
+          color: "yellow",
+          dob: "10/10/1982",
+        },
+        {
+            id: 6,
+            name: "Van Ng",
+            age: "37",
+            color: "green",
+            dob: "06/10/1982",
+          },
+          {
+            id: 7,
+            name: "Duc Ng",
+            age: "37",
+            color: "yellow",
+            dob: "10/10/1982",
+          },
+          {
+            id: 6,
+            name: "Van Ng",
+            age: "37",
+            color: "green",
+            dob: "06/10/1982",
+          },
+          {
+            id: 7,
+            name: "Duc Ng",
+            age: "37",
+            color: "yellow",
+            dob: "10/10/1982",
+          },
+          {
+            id: 6,
+            name: "Van Ng",
+            age: "37",
+            color: "green",
+            dob: "06/10/1982",
+          },
+          {
+            id: 7,
+            name: "Duc Ng",
+            age: "37",
+            color: "yellow",
+            dob: "10/10/1982",
+          },
+          {
+            id: 6,
+            name: "Van Ng",
+            age: "37",
+            color: "green",
+            dob: "06/10/1982",
+          },
+          {
+            id: 7,
+            name: "Duc Ng",
+            age: "37",
+            color: "yellow",
+            dob: "10/10/1982",
+          }
+      ];
+    
       const options = {
         movableRows: false,
         responsiveLayout: "hide"
@@ -211,9 +278,9 @@ function TestPage() {
                 </MotionBox>
                 <Box></Box>
             </Grid>
-            <Grid templateColumns="2fr 20fr 2fr" h="40vh">
+            <Grid templateColumns="2fr 28fr 2fr" h="40vh">
                 <Box></Box>
-                <MotionBox ref={ref1} animate={animation2} whileHover={{scale:1.1}} color="#4b8ae1" bgColor="#1b222d" borderRadius="2%" h="40vh" overflow="scroll">
+                <MotionBox ref={ref1} animate={animation2} whileHover={{scale:1.1}} color="black" bgColor="#1b222d" borderRadius="2%" h="40vh" overflow="scroll">
                     <Box margin="30px">
                     <ReactTabulator
                         columns={columns}
