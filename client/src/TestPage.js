@@ -10,7 +10,15 @@ import BarChart2 from './BarChart2'
 import { Bar } from 'react-chartjs-2';
 import { useInView } from 'react-intersection-observer'
 import "react-tabulator/lib/styles.css"; // default theme
-import "react-tabulator/css/tabulator_modern.min.css"
+// --- Comment out the Theme you want to try:
+//import "react-tabulator/css/tabulator.min.css"; // default
+//import "react-tabulator/css/tabulator_modern.min.css"; // default
+// import "react-tabulator/css/bootstrap/tabulator_bootstrap.min.css"; // bootstrap
+//import "react-tabulator/css/bulma/tabulator_bulma.min.css"; // bulma
+import "react-tabulator/css/semantic-ui/tabulator_semantic-ui.min.css"; // semantic
+//import "react-tabulator/css/materialize/tabulator_materialize.min.css"; // meterialize
+
+import data from './Data.js'
 
 // for React 16.4.x use: import { ReactTabulator }
 import { ReactTabulator } from "react-tabulator"; // for React 15.x
@@ -148,106 +156,12 @@ function TestPage() {
       };
 
       const columns = [
-        { title: "Name", field: "name", width: 150 },
-        { title: "Age", field: "age" },
-        { title: "Favourite Color", field: "color" },
-        { title: "Date Of Birth", field: "dob" }
+        { title: "Date", field: "name", width: 150, headerFilter: "input" },
+        { title: "Sentence", field: "age", width: 900, headerFilter: "input" },
+        { title: "Extraction", field: "color", width: 400, headerFilter: "input"  },
+        { title: "Direction", field: "dob", headerFilter: "input"  }
       ];
 
-      const data = [
-        {
-          id: 1,
-          name: "Oli Bob",
-          age: "12",
-          color: "blue",
-          dob: "01/01/1980"
-        },
-        {
-          id: 2,
-          name: "Mary May",
-          age: "1",
-          color: "green",
-          dob: "12/05/1989"
-        },
-        {
-          id: 5,
-          name: "Margret Marmajuke",
-          age: "16",
-          color: "yellow",
-          dob: "07/01/1999",
-        },
-        {
-          id: 6,
-          name: "Van Ng",
-          age: "37",
-          color: "green",
-          dob: "06/10/1982",
-        },
-        {
-          id: 7,
-          name: "Duc Ng",
-          age: "37",
-          color: "yellow",
-          dob: "10/10/1982",
-        },
-        {
-            id: 6,
-            name: "Van Ng",
-            age: "37",
-            color: "green",
-            dob: "06/10/1982",
-          },
-          {
-            id: 7,
-            name: "Duc Ng",
-            age: "37",
-            color: "yellow",
-            dob: "10/10/1982",
-          },
-          {
-            id: 6,
-            name: "Van Ng",
-            age: "37",
-            color: "green",
-            dob: "06/10/1982",
-          },
-          {
-            id: 7,
-            name: "Duc Ng",
-            age: "37",
-            color: "yellow",
-            dob: "10/10/1982",
-          },
-          {
-            id: 6,
-            name: "Van Ng",
-            age: "37",
-            color: "green",
-            dob: "06/10/1982",
-          },
-          {
-            id: 7,
-            name: "Duc Ng",
-            age: "37",
-            color: "yellow",
-            dob: "10/10/1982",
-          },
-          {
-            id: 6,
-            name: "Van Ng",
-            age: "37",
-            color: "green",
-            dob: "06/10/1982",
-          },
-          {
-            id: 7,
-            name: "Duc Ng",
-            age: "37",
-            color: "yellow",
-            dob: "10/10/1982",
-          }
-      ];
-    
       const options = {
         movableRows: false,
         responsiveLayout: "hide"
