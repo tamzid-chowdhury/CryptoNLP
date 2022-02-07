@@ -10,7 +10,7 @@ import BarChart2 from './BarChart2'
 import { Bar } from 'react-chartjs-2';
 import { useInView } from 'react-intersection-observer'
 import "react-tabulator/lib/styles.css"; // default theme
-import "react-tabulator/css/materialize/tabulator_materialize.min.css";// meterialize
+import "react-tabulator/css/tabulator_modern.min.css"
 
 // for React 16.4.x use: import { ReactTabulator }
 import { ReactTabulator } from "react-tabulator"; // for React 15.x
@@ -25,7 +25,7 @@ function TestPage() {
     });
 
     const {ref:ref1, inView:inView1} = useInView({
-        threshold: 0.2
+        threshold: 0.4
     });
 
     const [showGraphs, setShowGraphs] = useState(false);
