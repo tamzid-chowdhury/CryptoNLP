@@ -293,7 +293,7 @@ function TestPage() {
                 <Box></Box>
                 <MotionBox>
                 <Box ref={tableRef}><MotionBox ref={ref1} animate={animation2} color="black" bgColor="#1b222d" borderRadius="1%" h="75vh" overflow="scroll">
-                    <Box margin="20px">
+                    <Box margin="20px" maxWidth="86vw">
                     <ReactTabulator
                         columns={columns}
                         data={data}
