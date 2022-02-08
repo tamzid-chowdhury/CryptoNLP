@@ -40,7 +40,7 @@ function TestPage() {
     });
 
     const {ref:ref2, inView:inView2} = useInView({
-        threshold: 0.1
+        threshold: 0.2
     });
 
     const tableRef = useRef()
@@ -118,6 +118,30 @@ function TestPage() {
         }
         
     }, [inView1])
+
+    useEffect(() => {
+        if(inView2){
+            animation3.start({
+                scale: 1,
+                opacity: 1,
+                transition: {
+                    type: "spring",
+                    duration: 1,
+                    ease: [0.83, 0, 0.17, 1],
+                    y: {
+                        delay: 0.1
+                    }
+                }
+            })
+        }
+        if(!inView2){
+            animation3.start({
+                scale: 0.5,
+                opacity:0
+            })
+        }
+        
+    }, [inView2])
 
 
     useEffect(() => {
@@ -245,9 +269,9 @@ function TestPage() {
                     </Box>
                 </MotionBox>
                 <Box></Box>
-                <MotionBox ref={ref2}><Article article={article1}/></MotionBox>
+                <MotionBox ref={ref2} animate={animation3}><Article article={article1}/></MotionBox>
                 <Box></Box>
-                <MotionBox ref={ref2}><Article article={article2}/></MotionBox>
+                <MotionBox ref={ref2} animate={animation3}><Article article={article2}/></MotionBox>
                 <Box></Box>
             </Grid>
             <Grid ref={graphRef} templateColumns="2fr 4fr 0.5fr 4fr 0.5fr" h="70vh">
