@@ -196,18 +196,20 @@ function TestPage() {
         }
       };
 
-      const rightGraphVariants = {
+      const menuVariants = {
         hidden: {
-          x: "100vh",
+            opacity:0, x:-100,
          transition: {
+            delay: 0.2,
             type: "spring",
             duration: 0.7,
             ease: [0.83, 0, 0.17, 1]
           }
         },
         visible: {
-          x: "0",
+            opacity:1, x:0,
           transition: {
+            delay: 0.8,
             type: "spring",
             duration: 0.7,
             ease: [0.83, 0, 0.17, 1]
@@ -233,7 +235,7 @@ function TestPage() {
         <>
             <Box h="5vh"></Box>
             <Grid ref={articleRef} templateColumns="2fr 6fr 1fr 6fr 1fr" h="110vh">
-                <MotionBox initial={{opacity:0, x:-100}} animate={{opacity:1, x:0}} transition={{delay:0.7, duration:0.25}} w="7.5vw" h="17vh" bgColor="rgb(32, 40, 53, 0.5)" borderRightRadius="5%" top="4vh"position="fixed">
+                <MotionBox whileHover={{scale:1.05}} variants={menuVariants} initial="hidden" animate="visible" w="7.5vw" h="17vh" bgColor="rgb(32, 40, 53, 0.5)" borderRightRadius="5%" top="4vh"position="fixed">
                     <Box margin="10px">
                         <VStack color="white" spacing='2px'>
                             <Button variant='ghost' _hover={{color:"#E1D9D1"}} onClick={() => handleScrollArticle()} color={currentSection == "rel" ? "blue.300":"white"} >Relevent Articles</Button>
