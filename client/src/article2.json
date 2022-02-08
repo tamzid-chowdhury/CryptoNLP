@@ -12,12 +12,12 @@
                     },
                     {
                         "extType":"nonslot",
-                        "text":", the cryptocurrency company and stablecoin issuer, revealed through a public filing that it is currently under investigation by the "
+                        "text":", the cryptocurrency company and stablecoin issuer, revealed through a public filing that it is currently under investigation by the Securities and Exchange Commission "
                     },
                     {
                         "extType":"slot",
                         "slotValue":"Regulatory Agency",
-                        "text":"Securities and Exchange Commission"
+                        "text":"(SEC)"
                     }
                 ]
             },
