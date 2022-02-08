@@ -29,6 +29,8 @@ const MotionBox = motion(Box);
 
 function TestPage() {
 
+    const [currentSection, setCurrentSection] = useState("rel")
+
     const {ref, inView} = useInView({
         threshold: 0.6
     });
@@ -39,6 +41,19 @@ function TestPage() {
 
 
     const [showGraphs, setShowGraphs] = useState(false);
+
+    useEffect(() => {
+        if(inView){
+            setCurrentSection("gph")
+        }
+        else if(inView1){
+            setCurrentSection("tbl")
+        }
+        else{
+            setCurrentSection("rel")
+        }
+        
+    }, [inView1, inView])
 
     useEffect(() => {
         if(inView1){
@@ -178,9 +193,9 @@ function TestPage() {
                 <MotionBox initial={{opacity:0, x:-100}} animate={{opacity:1, x:0}} transition={{delay:0.7, duration:0.25}} w="8vw" h="17vh" bgColor="rgb(32, 40, 53, 0.5)" borderRightRadius="5%" top="8vh"position="fixed">
                     <Box margin="10px">
                         <VStack color="white" spacing='24px'>
-                            <Text _hover={{color:"blue.300"}} borderBottom="1px">Relevent Articles</Text>
-                            <Text _hover={{color:"blue.300"}} borderBottom="1px">Analytic Graphs</Text>
-                            <Text _hover={{color:"blue.300"}} borderBottom="1px">Extraction Table</Text>
+                            <Text _hover={{color:"#E1D9D1"}} color={currentSection == "rel" ? "blue.300":"white"} borderBottom="1px">Relevent Articles</Text>
+                            <Text _hover={{color:"#E1D9D1"}} color={currentSection == "gph" ? "blue.300":"white"} borderBottom="1px">Analytic Graphs</Text>
+                            <Text _hover={{color:"#E1D9D1"}} color={currentSection == "tbl" ? "blue.300":"white"} borderBottom="1px">Extraction Table</Text>
                         </VStack>
                     </Box>
                 </MotionBox>
