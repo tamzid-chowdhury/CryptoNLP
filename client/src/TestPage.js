@@ -15,8 +15,9 @@ import "react-tabulator/lib/styles.css"; // default theme
 //import "react-tabulator/css/tabulator_modern.min.css"; // default
 // import "react-tabulator/css/bootstrap/tabulator_bootstrap.min.css"; // bootstrap
 //import "react-tabulator/css/bulma/tabulator_bulma.min.css"; // bulma
-import "react-tabulator/css/semantic-ui/tabulator_semantic-ui.min.css"; // semantic
+//import "react-tabulator/css/semantic-ui/tabulator_semantic-ui.min.css"; // semantic
 //import "react-tabulator/css/materialize/tabulator_materialize.min.css"; // meterialize
+import "react-tabulator/css/tabulator_midnight.css"; // meterialize
 
 import data from './Data.js'
 
