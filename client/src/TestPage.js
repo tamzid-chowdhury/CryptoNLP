@@ -63,7 +63,7 @@ function TestPage() {
         let pos = targetEle.style.position;
         let top = targetEle.style.top;
         targetEle.style.position = 'relative';
-        targetEle.style.top = '-150px';
+        targetEle.style.top = '-190px';
         targetEle.scrollIntoView({ behavior: 'smooth', block: 'start' });
         targetEle.style.top = top;
         targetEle.style.position = pos;
@@ -233,7 +233,7 @@ function TestPage() {
         <>
             <Box h="5vh"></Box>
             <Grid ref={articleRef} templateColumns="2fr 6fr 1fr 6fr 1fr" h="110vh">
-                <MotionBox initial={{opacity:0, x:-100}} animate={{opacity:1, x:0}} transition={{delay:0.7, duration:0.25}} w="7.5vw" h="17vh" bgColor="rgb(32, 40, 53, 0.5)" borderRightRadius="5%" top="8vh"position="fixed">
+                <MotionBox initial={{opacity:0, x:-100}} animate={{opacity:1, x:0}} transition={{delay:0.7, duration:0.25}} w="7.5vw" h="17vh" bgColor="rgb(32, 40, 53, 0.5)" borderRightRadius="5%" top="4vh"position="fixed">
                     <Box margin="10px">
                         <VStack color="white" spacing='2px'>
                             <Button variant='ghost' _hover={{color:"#E1D9D1"}} onClick={() => handleScrollArticle()} color={currentSection == "rel" ? "blue.300":"white"} >Relevent Articles</Button>
