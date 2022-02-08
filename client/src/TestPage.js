@@ -1,5 +1,5 @@
-import {React, useState, useEffect} from 'react';
-import { Box, Text, Grid, Center, Icon, Tooltip, VStack } from '@chakra-ui/react';
+import {React, useState, useEffect, createRef, useRef} from 'react';
+import { Box, Text, Grid, Center, Icon, Tooltip, VStack , Button} from '@chakra-ui/react';
 import {motion, AnimatePresence, useAnimation} from 'framer-motion';
 import {article1} from "./article1.json";
 import {article2} from "./article2.json";
@@ -29,16 +29,56 @@ const MotionBox = motion(Box);
 
 function TestPage() {
 
-    const [currentSection, setCurrentSection] = useState("rel")
+    const [currentSection, setCurrentSection] = useState("")
 
     const {ref, inView} = useInView({
-        threshold: 0.6
+        threshold: 0.4
     });
 
     const {ref:ref1, inView:inView1} = useInView({
-        threshold: 0.2
+        threshold: 0.1
     });
 
+    const {ref:ref2, inView:inView2} = useInView({
+        threshold: 0.1
+    });
+
+    const tableRef = useRef()
+    const graphRef = useRef()
+    const articleRef = useRef()
+
+    function handleScrollTable(){
+        let targetEle = tableRef.current;
+        let pos = targetEle.style.position;
+        let top = targetEle.style.top;
+        targetEle.style.position = 'relative';
+        targetEle.style.top = '-100px';
+        targetEle.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        targetEle.style.top = top;
+        targetEle.style.position = pos;
+    }
+
+    function handleScrollGraph(){
+        let targetEle = graphRef.current;
+        let pos = targetEle.style.position;
+        let top = targetEle.style.top;
+        targetEle.style.position = 'relative';
+        targetEle.style.top = '-150px';
+        targetEle.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        targetEle.style.top = top;
+        targetEle.style.position = pos;
+    }
+
+    function handleScrollArticle(){
+        let targetEle = articleRef.current;
+        let pos = targetEle.style.position;
+        let top = targetEle.style.top;
+        targetEle.style.position = 'relative';
+        targetEle.style.top = '-100px';
+        targetEle.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        targetEle.style.top = top;
+        targetEle.style.position = pos;
+    }
 
     const [showGraphs, setShowGraphs] = useState(false);
 
@@ -49,11 +89,11 @@ function TestPage() {
         else if(inView1){
             setCurrentSection("tbl")
         }
-        else{
+        else if(inView2){
             setCurrentSection("rel")
         }
         
-    }, [inView1, inView])
+    }, [inView1, inView, inView2])
 
     useEffect(() => {
         if(inView1){
@@ -94,6 +134,8 @@ function TestPage() {
     const animation1 = useAnimation();
     const animation2 = useAnimation();
     const animation3 = useAnimation();
+
+
 
     useEffect(() => {
         if(inView){
@@ -186,45 +228,46 @@ function TestPage() {
       };
 
 
+
     return (
         <>
-            <Box h="3vh"></Box>
-            <Grid templateColumns="2fr 6fr 1fr 6fr 1fr" h="115vh">
-                <MotionBox initial={{opacity:0, x:-100}} animate={{opacity:1, x:0}} transition={{delay:0.7, duration:0.25}} w="8vw" h="17vh" bgColor="rgb(32, 40, 53, 0.5)" borderRightRadius="5%" top="8vh"position="fixed">
+            <Box h="5vh"></Box>
+            <Grid ref={articleRef} templateColumns="2fr 6fr 1fr 6fr 1fr" h="110vh">
+                <MotionBox initial={{opacity:0, x:-100}} animate={{opacity:1, x:0}} transition={{delay:0.7, duration:0.25}} w="7.5vw" h="17vh" bgColor="rgb(32, 40, 53, 0.5)" borderRightRadius="5%" top="8vh"position="fixed">
                     <Box margin="10px">
-                        <VStack color="white" spacing='24px'>
-                            <Text _hover={{color:"#E1D9D1"}} color={currentSection == "rel" ? "blue.300":"white"} borderBottom="1px">Relevent Articles</Text>
-                            <Text _hover={{color:"#E1D9D1"}} color={currentSection == "gph" ? "blue.300":"white"} borderBottom="1px">Analytic Graphs</Text>
-                            <Text _hover={{color:"#E1D9D1"}} color={currentSection == "tbl" ? "blue.300":"white"} borderBottom="1px">Extraction Table</Text>
+                        <VStack color="white" spacing='2px'>
+                            <Button variant='ghost' _hover={{color:"#E1D9D1"}} onClick={() => handleScrollArticle()} color={currentSection == "rel" ? "blue.300":"white"} >Relevent Articles</Button>
+                            <Button variant='ghost' _hover={{color:"#E1D9D1"}} onClick={() => handleScrollGraph()} color={currentSection == "gph" ? "blue.300":"white"}>Analytic Graphs</Button>
+                            <Button variant='ghost'_hover={{color:"#E1D9D1"}} onClick={() => handleScrollTable()} color={currentSection == "tbl" ? "blue.300":"white"}>Extraction Table</Button>
                         </VStack>
                     </Box>
                 </MotionBox>
                 <Box></Box>
-                <MotionBox><Article article={article1}/></MotionBox>
+                <MotionBox ref={ref2}><Article article={article1}/></MotionBox>
                 <Box></Box>
-                <MotionBox><Article article={article2}/></MotionBox>
+                <MotionBox ref={ref2}><Article article={article2}/></MotionBox>
                 <Box></Box>
             </Grid>
-            <Grid templateColumns="2fr 6fr 1fr 6fr 1fr" h="65vh">
+            <Grid ref={graphRef} templateColumns="2fr 4fr 0.5fr 4fr 0.5fr" h="70vh">
                 <Box></Box>
-                <MotionBox whileHover={{scale:1.1}} animate={animation}  ref={ref} w="38vw" h="45vh" marginTop="10px" bgColor="#202835" borderRadius="4%">
+                <MotionBox whileHover={{scale:1.05}} animate={animation}  ref={ref} w="42vw" h="50vh" marginTop="10px" bgColor="#202835" borderRadius="4%">
                     <Box margin="25px">
                     {showGraphs && <BarChart1></BarChart1>}
                     </Box>
                 </MotionBox>
                 <Box></Box>
-                <MotionBox whileHover={{ scale:1.1}} animate={animation1} ref={ref} w="38vw" h="45vh" marginTop="10px" bgColor="#1b222d" borderRadius="4%">
+                <MotionBox whileHover={{scale:1.05}} animate={animation1} ref={ref} w="42vw" h="50vh" marginTop="10px" bgColor="#1b222d" borderRadius="4%">
                     <Box margin="25px">
                     {showGraphs && <BarChart2></BarChart2>}
                     </Box>
                 </MotionBox>
                 <Box></Box>
             </Grid>
-            <Grid templateColumns="3fr 21fr 1fr" h="55vh">
+            <Grid templateColumns="3fr 21fr 1fr" h="75vh">
                 <Box></Box>
                 <MotionBox>
-                <MotionBox ref={ref1} animate={animation2} color="black" bgColor="#1b222d" borderRadius="1%" h="50vh" overflow="scroll">
-                    <Box margin="10px">
+                <Box ref={tableRef}><MotionBox ref={ref1} animate={animation2} color="black" bgColor="#1b222d" borderRadius="1%" h="75vh" overflow="scroll">
+                    <Box margin="20px">
                     <ReactTabulator
                         columns={columns}
                         data={data}
@@ -233,7 +276,7 @@ function TestPage() {
                         className="custom-css-class"
                         />
                     </Box>
-                </MotionBox>
+                </MotionBox></Box>
                 <MotionBox ref={ref1} animate={animation2} h="1.5vh" bgColor="#1b222d"></MotionBox>
                 </MotionBox>
                 <Box></Box>
