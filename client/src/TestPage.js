@@ -193,9 +193,10 @@ function TestPage() {
                 </MotionBox>
                 <Box></Box>
             </Grid>
-            <Grid templateColumns="2fr 28fr 2fr" h="40vh">
+            <Grid templateColumns="2fr 23fr 2fr" h="40vh">
                 <Box></Box>
-                <MotionBox ref={ref1} animate={animation2} whileHover={{scale:1.1}} color="black" bgColor="#1b222d" borderRadius="2%" h="40vh" overflow="scroll">
+                <MotionBox whileHover={{scale:1.1}}>
+                <MotionBox ref={ref1} animate={animation2} color="black" bgColor="#1b222d" h="40vh" overflow="scroll">
                     <Box margin="30px">
                     <ReactTabulator
                         columns={columns}
@@ -205,6 +206,8 @@ function TestPage() {
                         className="custom-css-class"
                         />
                     </Box>
+                </MotionBox>
+                <Box h="5vh" bgColor="#1b222d"></Box>
                 </MotionBox>
                 <Box></Box>
             </Grid>
