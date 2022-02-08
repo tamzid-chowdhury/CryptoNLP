@@ -30,12 +30,13 @@ const MotionBox = motion(Box);
 function TestPage() {
 
     const {ref, inView} = useInView({
-        threshold: 0.3
+        threshold: 0.6
     });
 
     const {ref:ref1, inView:inView1} = useInView({
-        threshold: 0.3
+        threshold: 0.2
     });
+
 
     const [showGraphs, setShowGraphs] = useState(false);
 
@@ -77,6 +78,7 @@ function TestPage() {
     const animation = useAnimation();
     const animation1 = useAnimation();
     const animation2 = useAnimation();
+    const animation3 = useAnimation();
 
     useEffect(() => {
         if(inView){
@@ -171,33 +173,43 @@ function TestPage() {
 
     return (
         <>
-            <Grid templateColumns="2fr 6fr 1fr 6fr 2fr" h="100vh">
+            <Box h="3vh"></Box>
+            <Grid templateColumns="2fr 6fr 1fr 6fr 1fr" h="115vh">
+                <MotionBox initial={{opacity:0, x:-100}} animate={{opacity:1, x:0}} transition={{delay:0.7, duration:0.25}} w="8vw" h="17vh" bgColor="rgb(32, 40, 53, 0.5)" borderRightRadius="5%" top="8vh"position="fixed">
+                    <Box margin="10px">
+                        <VStack color="white" spacing='24px'>
+                            <Text _hover={{color:"blue.300"}} borderBottom="1px">Relevent Articles</Text>
+                            <Text _hover={{color:"blue.300"}} borderBottom="1px">Analytic Graphs</Text>
+                            <Text _hover={{color:"blue.300"}} borderBottom="1px">Extraction Table</Text>
+                        </VStack>
+                    </Box>
+                </MotionBox>
                 <Box></Box>
-                <Article article={article1}/>
+                <MotionBox><Article article={article1}/></MotionBox>
                 <Box></Box>
-                <Article article={article2}/>
+                <MotionBox><Article article={article2}/></MotionBox>
                 <Box></Box>
             </Grid>
-            <Grid templateColumns="2fr 8fr 2fr 8fr 2fr" h="65vh">
+            <Grid templateColumns="2fr 6fr 1fr 6fr 1fr" h="65vh">
                 <Box></Box>
-                <MotionBox whileHover={{ scale:1.2}} animate={animation}  ref={ref} w="38vw" h="45vh" marginTop="10px" bgColor="#202835" borderRadius="4%">
+                <MotionBox whileHover={{scale:1.1}} animate={animation}  ref={ref} w="38vw" h="45vh" marginTop="10px" bgColor="#202835" borderRadius="4%">
                     <Box margin="25px">
                     {showGraphs && <BarChart1></BarChart1>}
                     </Box>
                 </MotionBox>
                 <Box></Box>
-                <MotionBox whileHover={{ scale:1.2}} animate={animation1} ref={ref} w="38vw" h="45vh" marginTop="10px" bgColor="#1b222d" borderRadius="4%">
+                <MotionBox whileHover={{ scale:1.1}} animate={animation1} ref={ref} w="38vw" h="45vh" marginTop="10px" bgColor="#1b222d" borderRadius="4%">
                     <Box margin="25px">
                     {showGraphs && <BarChart2></BarChart2>}
                     </Box>
                 </MotionBox>
                 <Box></Box>
             </Grid>
-            <Grid templateColumns="2fr 23fr 2fr" h="40vh">
+            <Grid templateColumns="3fr 21fr 1fr" h="55vh">
                 <Box></Box>
-                <MotionBox whileHover={{scale:1.1}}>
-                <MotionBox ref={ref1} animate={animation2} color="black" bgColor="#1b222d" h="40vh" overflow="scroll">
-                    <Box margin="30px">
+                <MotionBox>
+                <MotionBox ref={ref1} animate={animation2} color="black" bgColor="#1b222d" borderRadius="1%" h="50vh" overflow="scroll">
+                    <Box margin="10px">
                     <ReactTabulator
                         columns={columns}
                         data={data}
@@ -207,7 +219,7 @@ function TestPage() {
                         />
                     </Box>
                 </MotionBox>
-                <Box h="5vh" bgColor="#1b222d"></Box>
+                <MotionBox ref={ref1} animate={animation2} h="1.5vh" bgColor="#1b222d"></MotionBox>
                 </MotionBox>
                 <Box></Box>
             </Grid>

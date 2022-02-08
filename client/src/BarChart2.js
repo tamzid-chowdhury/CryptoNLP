@@ -38,16 +38,22 @@ export const data = {
   labels,
   datasets: [
     {
+      label: 'Positive',
+      data: labels.map(() => Math.round(Math.random() * (380 - 240) + 240)),
+      backgroundColor: 'rgba(53, 162, 235, 0.5)',
+    },
+    {
       label: 'Negative',
       data: labels.map(() => Math.round(Math.random() * (650 - 400) + 400)),
       backgroundColor: 'rgba(255, 99, 132, 0.5)',
       borderColor: 'rgba(255, 99, 132) '
     },
     {
-      label: 'Positive',
+      label: 'Neutral',
       data: labels.map(() => Math.round(Math.random() * (2600 - 1800) + 1800)),
-      backgroundColor: 'rgba(53, 162, 235, 0.5)',
-    },
+      borderColor: '#FFC300',
+      backgroundColor: 'rgb(255, 195, 0, 0.5)',
+    }
   ],
 };
 
