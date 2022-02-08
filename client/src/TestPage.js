@@ -32,15 +32,15 @@ function TestPage() {
     const [currentSection, setCurrentSection] = useState("")
 
     const {ref, inView} = useInView({
-        threshold: 0.4
+        threshold: 0.3
     });
 
     const {ref:ref1, inView:inView1} = useInView({
-        threshold: 0.1
+        threshold: 0.2
     });
 
     const {ref:ref2, inView:inView2} = useInView({
-        threshold: 0.2
+        threshold: 0.4
     });
 
     const tableRef = useRef()

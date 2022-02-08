@@ -86,7 +86,7 @@ function Article(props) {
             </Button>
                 <MotionBox variants={articleVariants} initial="hidden" animate="visible" bgGradient='linear(to-l, #63B3ED, #2C5282)' color="white" textAlign="center" marginTop="17px" fontSize="28px">{title}</MotionBox>
                 <AnimatePresence>
-                    {<MotionBox variants={article1Variants} initial="hidden" animate="visible" exit="hidden" margin="30px" color="white" fontSize="22px">
+                    {<MotionBox variants={metadataVariants} initial="hidden" animate="visible" exit="hidden" margin="30px" color="white" fontSize="22px">
                         {
                             textArray.map((text) => {
                             if(text.type == "normal"){
@@ -186,7 +186,7 @@ function Article(props) {
                 </Accordion>     
             </MotionText>
             </AnimatePresence>
-            <MotionBox variants={metadataVariants} initial="hidden" animate="visible" color="white">
+            <MotionBox variants={articleVariants} initial="hidden" animate="visible" color="white">
                 <Center><Text textAlign="center" opacity="50%" fontSize="17px">Metadata</Text></Center>
                 <Center><Box bgColor="white" h="1px" opacity="20%" w="50%" mb="10px"></Box></Center>
                 <Center>
