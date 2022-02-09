@@ -101,8 +101,8 @@ function Article(props) {
                                                 text.extArr.map((text) => {
                                                     if(text.extType == "slot"){
                                                         return (
-                                                            <Tooltip  bgColor="#4b8ae1" color="white" label={text.slotValue} placement='top'>
-                                                            <MotionBox whileHover={{ color:"#7ba9e9"}} color="#4b8ae1" as="span">
+                                                            <Tooltip  bgColor="#E50914" color="white" label={text.slotValue} placement='top'>
+                                                            <MotionBox whileHover={{ color:"#f85e66"}} color="#4b8ae1" as="span">
                                                                 {text.text}
                                                             </MotionBox>
                                                             </Tooltip>

@@ -17,7 +17,7 @@ const App = () => {
 
   return (
     <Box w='100%' h='285vh' bgGradient='linear(to-t, #09203F, #537895)'>
-       <ParticleBackground/>
+       {/* <ParticleBackground/> */}
        <TestPage className='app'/>
     </Box>
   );
