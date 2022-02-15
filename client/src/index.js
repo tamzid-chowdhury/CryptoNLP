@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 import { ApolloProvider, ApolloClient, InMemoryCache } from '@apollo/client';
+import {BrowserRouter as Router} from 'react-router-dom'
 
 import { ChakraProvider } from '@chakra-ui/react'
 import { extendTheme } from '@chakra-ui/react'
@@ -26,7 +27,9 @@ ReactDOM.render(
     <React.StrictMode>
         <ApolloProvider client={client}>
             <ChakraProvider theme={theme}>
-                <App />
+                <Router>
+                    <App />
+                </Router>
             </ChakraProvider>
         </ApolloProvider>
     </React.StrictMode>,

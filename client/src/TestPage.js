@@ -1,8 +1,9 @@
 import {React, useState, useEffect, createRef, useRef} from 'react';
-import { Box, Text, Grid, Center, Icon, Tooltip, VStack , Button} from '@chakra-ui/react';
+import { Box, Text, Grid, Center, Icon, Tooltip, VStack , Button, IconButton} from '@chakra-ui/react';
 import {motion, AnimatePresence, useAnimation} from 'framer-motion';
 import {article1} from "./article1.json";
 import {article2} from "./article2.json";
+import { useHistory } from 'react-router-dom';
 import Article from './Article'
 import ChartContainer from './ChartContainer.js'
 import BarChart1 from './BarChart1'
@@ -18,6 +19,8 @@ import "react-tabulator/lib/styles.css"; // default theme
 //import "react-tabulator/css/semantic-ui/tabulator_semantic-ui.min.css"; // semantic
 //import "react-tabulator/css/materialize/tabulator_materialize.min.css"; // meterialize
 import "react-tabulator/css/tabulator_midnight.css"; // meterialize
+
+import { MdHome } from 'react-icons/md';
 
 import data from './Data.js'
 
@@ -224,7 +227,7 @@ function TestPage() {
         hidden: {
             opacity:0, x:-100,
          transition: {
-            delay: 0.2,
+            delay: 0.4,
             type: "spring",
             duration: 0.7,
             ease: [0.83, 0, 0.17, 1]
@@ -233,13 +236,26 @@ function TestPage() {
         visible: {
             opacity:1, x:0,
           transition: {
-            delay: 0.8,
+            delay: 1,
             type: "spring",
-            duration: 0.7,
+            duration: 1,
             ease: [0.83, 0, 0.17, 1]
           }
         }
       };
+
+      const exitVariants = {
+          exit: {
+              scale: 0,
+              opacity:0,
+              transition: {
+                delay: 0.8,
+                type: "spring",
+                duration: 1,
+                ease: [0.83, 0, 0.17, 1]
+              }
+          }
+      }
 
       const columns = [
         { title: "Date", field: "name", width: 150, headerFilter: "input" },
@@ -253,15 +269,23 @@ function TestPage() {
         responsiveLayout: "hide"
       };
 
+      const history = useHistory();
+
+      function gotoHome(){
+        history.push('/')
+      }
+
+
 
 
     return (
-        <>
+        <Box h="285vh" bgGradient='linear(to-t, #09203F, #537895)'>
             <Box h="5vh"></Box>
             <Grid ref={articleRef} templateColumns="2fr 6fr 1fr 6fr 1fr" h="110vh">
-                <MotionBox whileHover={{scale:1.05}} variants={menuVariants} initial="hidden" animate="visible" w="7.5vw" h="17vh" bgColor="rgb(32, 40, 53, 0.5)" borderRightRadius="5%" top="4vh"position="fixed">
+                <MotionBox whileHover={{scale:1.05}} variants={menuVariants} initial="hidden" animate="visible" exit="hidden" w="7.5vw" h="17vh" bgColor="rgb(32, 40, 53, 0.5)" borderRightRadius="5%" top="4vh"position="fixed">
                     <Box margin="10px">
                         <VStack color="white" spacing='2px'>
+                            <IconButton onClick={gotoHome} size='sm' variant='ghost' icon={<MdHome/>} />
                             <Button variant='ghost' _hover={{color:"#E1D9D1"}} onClick={() => handleScrollArticle()} color={currentSection == "rel" ? "blue.300":"white"} >Relevent Articles</Button>
                             <Button variant='ghost' _hover={{color:"#E1D9D1"}} onClick={() => handleScrollGraph()} color={currentSection == "gph" ? "blue.300":"white"}>Analytic Graphs</Button>
                             <Button variant='ghost'_hover={{color:"#E1D9D1"}} onClick={() => handleScrollTable()} color={currentSection == "tbl" ? "blue.300":"white"}>Extraction Table</Button>
@@ -269,20 +293,20 @@ function TestPage() {
                     </Box>
                 </MotionBox>
                 <Box></Box>
-                <MotionBox ref={ref2} animate={animation3}><Article article={article1}/></MotionBox>
+                <MotionBox ref={ref2} variants={exitVariants} exit="exit" animate={animation3}><Article article={article1}/></MotionBox>
                 <Box></Box>
-                <MotionBox ref={ref2} animate={animation3}><Article article={article2}/></MotionBox>
+                <MotionBox ref={ref2} variants={exitVariants} exit="exit" animate={animation3}><Article article={article2}/></MotionBox>
                 <Box></Box>
             </Grid>
             <Grid ref={graphRef} templateColumns="2fr 4fr 0.5fr 4fr 0.5fr" h="70vh">
                 <Box></Box>
-                <MotionBox whileHover={{scale:1.05}} animate={animation}  ref={ref} w="42vw" h="50vh" marginTop="10px" bgColor="#202835" borderRadius="4%">
+                <MotionBox whileHover={{scale:1.05}} animate={animation} variants={exitVariants} exit="exit" ref={ref} w="42vw" h="50vh" marginTop="10px" bgColor="#202835" borderRadius="4%">
                     <Box margin="25px">
                     {showGraphs && <BarChart1></BarChart1>}
                     </Box>
                 </MotionBox>
                 <Box></Box>
-                <MotionBox whileHover={{scale:1.05}} animate={animation1} ref={ref} w="42vw" h="50vh" marginTop="10px" bgColor="#1b222d" borderRadius="4%">
+                <MotionBox whileHover={{scale:1.05}} animate={animation1} variants={exitVariants} exit="exit" ref={ref} w="42vw" h="50vh" marginTop="10px" bgColor="#1b222d" borderRadius="4%">
                     <Box margin="25px">
                     {showGraphs && <BarChart2></BarChart2>}
                     </Box>
@@ -292,7 +316,7 @@ function TestPage() {
             <Grid templateColumns="3fr 21fr 1fr" h="75vh">
                 <Box></Box>
                 <MotionBox>
-                <Box ref={tableRef}><MotionBox ref={ref1} animate={animation2} color="black" bgColor="#1b222d" borderRadius="1%" h="75vh" overflow="scroll">
+                <Box ref={tableRef}><MotionBox ref={ref1} variants={exitVariants} exit="exit" animate={animation2} color="black" bgColor="#1b222d" borderRadius="1%" h="75vh" overflow="scroll">
                     <Box margin="20px" maxWidth="86vw">
                     <ReactTabulator
                         columns={columns}
@@ -307,7 +331,7 @@ function TestPage() {
                 </MotionBox>
                 <Box></Box>
             </Grid>
-        </>
+        </Box>
     );
 }
 
