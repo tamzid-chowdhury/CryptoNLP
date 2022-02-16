@@ -1,10 +1,10 @@
-const quizzesResolvers = require('./quizzes');
+const clientsResolvers = require('./clients');
 
 module.exports = {
   Query: {
-    ...quizzesResolvers.Query,
+    ...clientsResolvers.Query,
   },
   Mutation: {
-    ...quizzesResolvers.Mutation,
+    ...clientsResolvers.Mutation,
   },
 };

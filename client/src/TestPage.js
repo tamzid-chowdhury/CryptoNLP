@@ -19,15 +19,16 @@ import "react-tabulator/lib/styles.css"; // default theme
 //import "react-tabulator/css/semantic-ui/tabulator_semantic-ui.min.css"; // semantic
 //import "react-tabulator/css/materialize/tabulator_materialize.min.css"; // meterialize
 import "react-tabulator/css/tabulator_midnight.css"; // meterialize
-
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 import { MdLogin, MdHome } from 'react-icons/md';
+import Slider from "react-slick";
 
 import data from './Data.js'
 
 // for React 16.4.x use: import { ReactTabulator }
 import { ReactTabulator } from "react-tabulator"; // for React 15.x
 import { propsToOptions } from 'react-tabulator/lib/ConfigUtils';
-
 
 const MotionBox = motion(Box);
 

@@ -1,5 +1,5 @@
 const { gql } = require('apollo-server-express');
-const quizzes = require('./quizzes');
+const clients = require('./clients');
 
 const setup = gql`
     type Query {
@@ -13,4 +13,4 @@ const setup = gql`
     }
 `;
 
-module.exports = [setup, quizzes];
+module.exports = [setup, clients];

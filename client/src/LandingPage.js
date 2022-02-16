@@ -21,15 +21,6 @@ function LandingPage(props) {
 
     const history = useHistory();
 
-
-    const breakpoints = createBreakpoints({
-      sm: '30em',
-      md: '48em',
-      lg: '62em',
-      xl: '80em',
-      '2xl': '96em',
-    })
-
     const menuVariants = {
         hidden: {
             opacity:0, scale:0,
@@ -78,14 +69,14 @@ function LandingPage(props) {
           <MotionBox h="100vh" color="white">
                 <Center position="relative" top="35vh">
                     <VStack spacing={3}>
-                    <MotionBox variants={titleVariants} animate="visible" exit="hidden" className="titlefont" fontSize={{ base: '20px', md: '30px', lg: '40px' }}>Understand <Box as="span" color="red.300">Crypto </Box>Like Never Before</MotionBox>
-                    <MotionBox variants={titleVariants} animate="visible" exit="hidden" className="titlefont" fontSize={{ base: '10px', md: '20px', lg: '30px' }}>Utilizing <Box as="span" color="red.300">NLP</Box> to Understand the<Box as="span" color="red.300"> Global Crypto Market</Box></MotionBox>
+                    <MotionBox variants={titleVariants} initial="hidden" animate="visible" exit="hidden" className="titlefont" fontSize={{ base: '20px', md: '30px', lg: '40px' }}>Understand <Box as="span" color="red.300">Crypto </Box>Like Never Before</MotionBox>
+                    <MotionBox variants={titleVariants} initial="hidden" animate="visible" exit="hidden" className="titlefont" fontSize={{ base: '10px', md: '20px', lg: '30px' }}>Utilizing <Box as="span" color="red.300">NLP</Box> to Understand the<Box as="span" color="red.300"> Global Crypto Market</Box></MotionBox>
                     </VStack>
                 </Center>
                 <Center position="relative" top="40vh">
                     <HStack spacing={10}>
-                    <MotionButton variant="outline" className="titlefont" variants={menuVariants} animate="visible" exit="hidden" size="lg" onClick={gotoDemo}>Start Demo</MotionButton>
-                    <MotionButton variant="outline" className="titlefont" variants={menuVariants} animate="visible" exit="hidden" size="lg" onClick={props.onOpen}>Join Waitlist</MotionButton>
+                    <MotionButton variant="outline" className="titlefont" variants={menuVariants} initial="hidden" animate="visible" exit="hidden" size="lg" onClick={gotoDemo}>Start Demo</MotionButton>
+                    <MotionButton variant="outline" className="titlefont" variants={menuVariants} initial="hidden" animate="visible" exit="hidden" size="lg" onClick={props.onOpen}>Join Waitlist</MotionButton>
                     </HStack>
                 </Center>
           </MotionBox>
