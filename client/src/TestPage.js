@@ -1,5 +1,5 @@
 import {React, useState, useEffect, createRef, useRef} from 'react';
-import { Box, Text, Grid, Center, Icon, Tooltip, VStack , Button, IconButton} from '@chakra-ui/react';
+import { Box, Text, Grid, Center, Icon, Tooltip, VStack , Button, IconButton, HStack} from '@chakra-ui/react';
 import {motion, AnimatePresence, useAnimation} from 'framer-motion';
 import {article1} from "./article1.json";
 import {article2} from "./article2.json";
@@ -20,17 +20,18 @@ import "react-tabulator/lib/styles.css"; // default theme
 //import "react-tabulator/css/materialize/tabulator_materialize.min.css"; // meterialize
 import "react-tabulator/css/tabulator_midnight.css"; // meterialize
 
-import { MdHome } from 'react-icons/md';
+import { MdLogin, MdHome } from 'react-icons/md';
 
 import data from './Data.js'
 
 // for React 16.4.x use: import { ReactTabulator }
 import { ReactTabulator } from "react-tabulator"; // for React 15.x
+import { propsToOptions } from 'react-tabulator/lib/ConfigUtils';
 
 
 const MotionBox = motion(Box);
 
-function TestPage() {
+function TestPage(props) {
 
     const [currentSection, setCurrentSection] = useState("")
 
@@ -227,7 +228,7 @@ function TestPage() {
         hidden: {
             opacity:0, x:-100,
          transition: {
-            delay: 0.4,
+            delay: 0.1,
             type: "spring",
             duration: 0.7,
             ease: [0.83, 0, 0.17, 1]
@@ -236,7 +237,7 @@ function TestPage() {
         visible: {
             opacity:1, x:0,
           transition: {
-            delay: 1,
+            delay: 0.4,
             type: "spring",
             duration: 1,
             ease: [0.83, 0, 0.17, 1]
@@ -249,7 +250,7 @@ function TestPage() {
               scale: 0,
               opacity:0,
               transition: {
-                delay: 0.8,
+                delay: 0.2,
                 type: "spring",
                 duration: 1,
                 ease: [0.83, 0, 0.17, 1]
@@ -279,16 +280,19 @@ function TestPage() {
 
 
     return (
-        <Box h="285vh" bgGradient='linear(to-t, #09203F, #537895)'>
+        <Box h="285vh">
             <Box h="5vh"></Box>
             <Grid ref={articleRef} templateColumns="2fr 6fr 1fr 6fr 1fr" h="110vh">
-                <MotionBox whileHover={{scale:1.05}} variants={menuVariants} initial="hidden" animate="visible" exit="hidden" w="7.5vw" h="17vh" bgColor="rgb(32, 40, 53, 0.5)" borderRightRadius="5%" top="4vh"position="fixed">
+                <MotionBox whileHover={{scale:1.05}} variants={menuVariants} initial="hidden" animate="visible" exit="hidden" w="7.5vw" h="18vh" bgColor="rgb(32, 40, 53, 0.5)" borderRightRadius="5%" top="4vh"position="fixed">
                     <Box margin="10px">
                         <VStack color="white" spacing='2px'>
-                            <IconButton onClick={gotoHome} size='sm' variant='ghost' icon={<MdHome/>} />
                             <Button variant='ghost' _hover={{color:"#E1D9D1"}} onClick={() => handleScrollArticle()} color={currentSection == "rel" ? "blue.300":"white"} >Relevent Articles</Button>
                             <Button variant='ghost' _hover={{color:"#E1D9D1"}} onClick={() => handleScrollGraph()} color={currentSection == "gph" ? "blue.300":"white"}>Analytic Graphs</Button>
                             <Button variant='ghost'_hover={{color:"#E1D9D1"}} onClick={() => handleScrollTable()} color={currentSection == "tbl" ? "blue.300":"white"}>Extraction Table</Button>
+                            <HStack>
+                                <IconButton fontSize="20px" onClick={gotoHome} size='sm' variant='ghost' icon={<MdHome/>} />
+                                <IconButton fontSize="20px" onClick={props.onOpen} size='sm' variant='ghost' icon={<MdLogin/>} />
+                            </HStack>
                         </VStack>
                     </Box>
                 </MotionBox>
@@ -327,7 +331,7 @@ function TestPage() {
                         />
                     </Box>
                 </MotionBox></Box>
-                <MotionBox ref={ref1} animate={animation2} h="1.5vh" bgColor="#1b222d"></MotionBox>
+                {/* <MotionBox ref={ref1} animate={animation2} h="1.5vh" bgColor="#1b222d"></MotionBox> */}
                 </MotionBox>
                 <Box></Box>
             </Grid>

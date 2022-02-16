@@ -1,3 +1,7 @@
 ::-webkit-scrollbar {
     display: none;
   }
+
+  .titlefont {
+    font-family: 'Courier New', Courier, monospace;
+  }

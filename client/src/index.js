@@ -27,7 +27,7 @@ ReactDOM.render(
     <React.StrictMode>
         <ApolloProvider client={client}>
             <ChakraProvider theme={theme}>
-                <Router>
+                <Router onUpdate={() => window.scrollTo(0, 0)}>
                     <App />
                 </Router>
             </ChakraProvider>

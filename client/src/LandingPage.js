@@ -1,5 +1,6 @@
 import {React, useState, useEffect, createRef, useRef} from 'react';
-import { Box, Text, Grid, Center, Icon, Tooltip, VStack , Button} from '@chakra-ui/react';
+import { Box, Text, Grid, Center, Icon, Tooltip, VStack , HStack, Button, Input, FormLabel, InputGroup, InputLeftAddon, Drawer, DrawerBody,
+DrawerContent, DrawerOverlay, DrawerCloseButton, DrawerHeader, Stack, Select, Textarea, DrawerFooter, InputRightAddon, useDisclosure} from '@chakra-ui/react';
 import {motion, AnimatePresence, useAnimation} from 'framer-motion';
 import { useInView } from 'react-intersection-observer'
 import {
@@ -11,28 +12,59 @@ import {
     useHistory
 } from 'react-router-dom';
 
-function LandingPage() {
+import { createBreakpoints } from '@chakra-ui/theme-tools'
+import {AddIcon} from '@chakra-ui/icons'
+
+function LandingPage(props) {
     const MotionBox = motion(Box);
     const MotionButton = motion(Button);
 
     const history = useHistory();
 
+
+    const breakpoints = createBreakpoints({
+      sm: '30em',
+      md: '48em',
+      lg: '62em',
+      xl: '80em',
+      '2xl': '96em',
+    })
+
     const menuVariants = {
         hidden: {
             opacity:0, scale:0,
          transition: {
-            delay: 0.2,
             type: "spring",
             duration: 0.7,
             ease: [0.83, 0, 0.17, 1]
           }
         },
         visible: {
-            opacity:1, scale:1,
+            opacity:1, scale:1.1,
           transition: {
-            delay: 0.8,
             type: "spring",
             duration: 0.7,
+            ease: [0.83, 0, 0.17, 1]
+          }
+        }
+      };
+
+      const titleVariants = {
+        hidden: {
+            opacity:0,
+            scale:0,
+         transition: {
+            type: "spring",
+            duration: 1,
+            ease: [0.83, 0, 0.17, 1]
+          }
+        },
+        visible: {
+            opacity:1,
+            scale:1.5,
+          transition: {
+            type: "spring",
+            duration: 1,
             ease: [0.83, 0, 0.17, 1]
           }
         }
@@ -41,14 +73,22 @@ function LandingPage() {
       function gotoDemo(){
         history.push('/demo')
       }
-
+    
         return (
-            <AnimatePresence>
-                <Center>
-                    <MotionButton variants={menuVariants} initial="hidden" animate="visible" exit="hidden" size="lg" marginTop="50vh" onClick={gotoDemo}>Start Demo</MotionButton>
+          <MotionBox h="100vh" color="white">
+                <Center position="relative" top="35vh">
+                    <VStack spacing={3}>
+                    <MotionBox variants={titleVariants} animate="visible" exit="hidden" className="titlefont" fontSize={{ base: '20px', md: '30px', lg: '40px' }}>Understand <Box as="span" color="red.300">Crypto </Box>Like Never Before</MotionBox>
+                    <MotionBox variants={titleVariants} animate="visible" exit="hidden" className="titlefont" fontSize={{ base: '10px', md: '20px', lg: '30px' }}>Utilizing <Box as="span" color="red.300">NLP</Box> to Understand the<Box as="span" color="red.300"> Global Crypto Market</Box></MotionBox>
+                    </VStack>
                 </Center>
-            </AnimatePresence>
+                <Center position="relative" top="40vh">
+                    <HStack spacing={10}>
+                    <MotionButton variant="outline" className="titlefont" variants={menuVariants} animate="visible" exit="hidden" size="lg" onClick={gotoDemo}>Start Demo</MotionButton>
+                    <MotionButton variant="outline" className="titlefont" variants={menuVariants} animate="visible" exit="hidden" size="lg" onClick={props.onOpen}>Join Waitlist</MotionButton>
+                    </HStack>
+                </Center>
+          </MotionBox>
         );
 }
-
 export default LandingPage;
