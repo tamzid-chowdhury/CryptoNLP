@@ -274,7 +274,12 @@ function TestPage(props) {
       const history = useHistory();
 
       function gotoHome(){
+        document.body.style.overflow = 'hidden'
         history.push('/')
+        setTimeout(() => {
+            document.body.style.overflow = 'scroll'
+        }, 2000)
+       
       }
 
 
