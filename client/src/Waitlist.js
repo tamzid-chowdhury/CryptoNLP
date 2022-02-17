@@ -24,6 +24,9 @@ const Waitlist = ({ isOpen, onOpen, onClose }) => {
         onCompleted() {
         },
       });
+
+      const positionOptions = ["Other","Data Scientist", "Financial Planning", "Portfolio Management", "Procurement", "Research", "Analyst", "Investment Research", 
+      "Investment Relations", "Quant", "Claims", "Customer Service", "Risk", "Actuary", "Broker", "Strategic Marketing", "Sales Operations", "Corporate Development"]
     
       const firstField = useRef()
       const [name, setName] = useState("");
@@ -115,12 +118,12 @@ const Waitlist = ({ isOpen, onOpen, onClose }) => {
 
                 <Box>
                     <FormLabel htmlFor='username'>Position in Company</FormLabel>
-                    <Input
-                    id='email'
-                    placeholder='Please enter position'
-                    value={ position }
-                    onChange={(e) => setPosition(e.target.value)}
-                    />
+                    <Select h="45px" value={position} onChange={(event) => setPosition(event.target.value)} borderRadius="5px 0px 0px 5px" _focus={{boxShadow:"none"}} > 
+                        {positionOptions.map((pos, index) => {
+                            return <option key={index}> {pos} </option>;
+                        })}
+                    </Select>
+
                 </Box>  
 
                 <Box>
