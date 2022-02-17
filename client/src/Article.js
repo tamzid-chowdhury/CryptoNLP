@@ -102,7 +102,7 @@ function Article(props) {
                                                     if(text.extType == "slot"){
                                                         return (
                                                             <Tooltip  bgColor="#E50914" color="white" label={text.slotValue} placement='top'>
-                                                            <MotionBox whileHover={{ color:"#f85e66"}} color="#4b8ae1" as="span">
+                                                            <MotionBox whileHover={{ color:"red"}} color="#4b8ae1" as="span">
                                                                 {text.text}
                                                             </MotionBox>
                                                             </Tooltip>

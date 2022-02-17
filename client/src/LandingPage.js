@@ -26,7 +26,7 @@ function LandingPage(props) {
             opacity:0, scale:0,
          transition: {
             type: "spring",
-            duration: 0.7,
+            duration: 0.1,
             ease: [0.83, 0, 0.17, 1]
           }
         },
@@ -34,7 +34,7 @@ function LandingPage(props) {
             opacity:1, scale:1.1,
           transition: {
             type: "spring",
-            duration: 0.7,
+            duration: 0.1,
             ease: [0.83, 0, 0.17, 1]
           }
         }
@@ -75,8 +75,8 @@ function LandingPage(props) {
                 </Center>
                 <Center position="relative" top="40vh">
                     <HStack spacing={10}>
-                    <MotionButton variant="outline" className="titlefont" variants={menuVariants} initial="hidden" animate="visible" exit="hidden" size="lg" onClick={gotoDemo}>Start Demo</MotionButton>
-                    <MotionButton variant="outline" className="titlefont" variants={menuVariants} initial="hidden" animate="visible" exit="hidden" size="lg" onClick={props.onOpen}>Join Waitlist</MotionButton>
+                    <MotionButton variant="solid" whileHover={{scale:1.2}} bgColor="white" _hover={{bgColor:"gray.200"}}  color="red.400" className="titlefont" variants={menuVariants} initial="hidden" animate="visible" exit="hidden" size="lg" onClick={gotoDemo}>Start Demo</MotionButton>
+                    <MotionButton variant="solid"  whileHover={{scale:1.2}} bgColor="red.300" _hover={{bgColor:"red.500"}} className="titlefont" variants={menuVariants} initial="hidden" animate="visible" exit="hidden" size="lg" onClick={props.onOpen}>Join Waitlist</MotionButton>
                     </HStack>
                 </Center>
           </MotionBox>
