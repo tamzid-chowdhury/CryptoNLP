@@ -54,7 +54,6 @@ const Waitlist = ({ isOpen, onOpen, onClose }) => {
         <Drawer
             isOpen={isOpen}
             placement='right'
-            initialFocusRef={firstField}
             onClose={onClose}
             size="sm"
             bgGradient='linear(to-t, #09203F, #537895)'
@@ -65,13 +64,14 @@ const Waitlist = ({ isOpen, onOpen, onClose }) => {
             <DrawerContent>
             <DrawerCloseButton />
             <DrawerHeader borderBottomWidth='1px' >
-                Join the Waitlist
+                <Center>Join the Waitlist</Center>
             </DrawerHeader>
 
             <DrawerBody>
-                <Stack spacing='24px'>
+                <Stack spacing='40px'>
+                <Grid templateColumns="1fr 0.1fr 1fr" spacing={3}>
                 <Box>
-                    <FormLabel htmlFor='username'>Name</FormLabel>
+                    <FormLabel htmlFor='username'>First Name</FormLabel>
                     <Input
                     ref={firstField}
                     id='username'
@@ -80,6 +80,18 @@ const Waitlist = ({ isOpen, onOpen, onClose }) => {
                     onChange={(e) => setName(e.target.value)}
                     />
                 </Box>
+                <Box></Box>
+                <Box>
+                    <FormLabel htmlFor='username'>Last Name</FormLabel>
+                    <Input
+                    ref={firstField}
+                    id='username'
+                    placeholder='Please enter user name'
+                    value={ name }
+                    onChange={(e) => setName(e.target.value)}
+                    />
+                </Box>
+                </Grid>
 
                 <Box>
                     <FormLabel htmlFor='username'>Email</FormLabel>
