@@ -50,13 +50,16 @@ const Waitlist = ({ isOpen, onOpen, onClose }) => {
         });
       }
     return (
-        <>
+        <Box bgColor="red">
         <Drawer
             isOpen={isOpen}
             placement='right'
             initialFocusRef={firstField}
             onClose={onClose}
             size="sm"
+            bgGradient='linear(to-t, #09203F, #537895)'
+            bgColor="blue"
+            variant="permanent"
         >
             <DrawerOverlay />
             <DrawerContent>
@@ -125,7 +128,7 @@ const Waitlist = ({ isOpen, onOpen, onClose }) => {
             </DrawerFooter>
             </DrawerContent>
         </Drawer>
-        </>
+        </Box>
     );
 }
 

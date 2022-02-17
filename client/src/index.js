@@ -12,6 +12,20 @@ const theme = extendTheme({
     heading: 'Open Sans',
     body: 'Raleway',
   },
+  components: {
+    Drawer: {
+      variants: {
+        permanent: {
+          dialog: {
+            pointerEvents: 'auto',
+          },
+          dialogContainer: {
+            pointerEvents: 'none',
+          }
+        },
+      },
+    },
+  },
 })
 
 const cache = new InMemoryCache();

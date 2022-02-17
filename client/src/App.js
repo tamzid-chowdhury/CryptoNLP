@@ -18,6 +18,7 @@ import LandingPage from './LandingPage';
 import {motion, AnimatePresence, useAnimation} from 'framer-motion';
 import Stats from './Stats';
 import Waitlist from './Waitlist.js'
+import { extendTheme } from '@chakra-ui/react';
 
 const App = () => {
   
