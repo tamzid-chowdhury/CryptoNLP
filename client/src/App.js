@@ -66,7 +66,7 @@ const App = () => {
   }
 
   return (
-    <Box w='100%' bgGradient='linear(to-b, #09203F, #537895)'>
+    <Box w='100%' bgGradient='linear(to-t, #09203F, #537895)'>
       {/* <ParticleBackground/> */}
         <AnimatePresence exitBeforeEnter>
           <Switch location={location} key={location.pathname}>
