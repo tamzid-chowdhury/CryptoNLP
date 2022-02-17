@@ -56,11 +56,12 @@ const Waitlist = ({ isOpen, onOpen, onClose }) => {
             placement='right'
             initialFocusRef={firstField}
             onClose={onClose}
+            size="sm"
         >
             <DrawerOverlay />
             <DrawerContent>
             <DrawerCloseButton />
-            <DrawerHeader borderBottomWidth='1px'>
+            <DrawerHeader borderBottomWidth='1px' >
                 Join the Waitlist
             </DrawerHeader>
 

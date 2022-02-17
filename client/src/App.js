@@ -45,8 +45,9 @@ const App = () => {
             <Route exact path='/demo'><TestPage onOpen={onOpen}/></Route>
             <Route exact path='/stats'><Stats/></Route>
           </Switch>
-        </AnimatePresence>
+        
         <Waitlist isOpen={isOpen} onClose={onClose}/>
+        </AnimatePresence>
 
     </Box>
   );
