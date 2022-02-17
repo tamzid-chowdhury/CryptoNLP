@@ -64,7 +64,7 @@ function LandingPage(props) {
       function gotoDemo(){
         history.push('/demo')
       }
-    
+
         return (
           <MotionBox h="100vh" color="white">
                 <Center position="relative" top="35vh">
