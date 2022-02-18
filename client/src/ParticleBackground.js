@@ -50,7 +50,7 @@ export default function ParticleBackground() {
             },
             particles: {
             color: {
-                value: "#000000",
+                value: "#ffffff",
             },
             collisions: {
                 enable: true,
@@ -60,7 +60,7 @@ export default function ParticleBackground() {
                 enable: true,
                 outMode: "bounce",
                 random: false,
-                speed: 0.1,
+                speed: 1,
                 straight: false,
             },
             number: {
@@ -68,7 +68,7 @@ export default function ParticleBackground() {
                 enable: true,
                 area: 600,
                 },
-                value: 30,
+                value: 100,
             },
             opacity: {
                 value: 0.5,
@@ -78,7 +78,7 @@ export default function ParticleBackground() {
             },
             size: {
                 random: true,
-                value: 7,
+                value: 2,
             },
             },
             detectRetina: true,

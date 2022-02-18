@@ -11,6 +11,7 @@ import {
     useLocation,
     useHistory
 } from 'react-router-dom';
+import ParticleBackground from './ParticleBackground';
 
 import { createBreakpoints } from '@chakra-ui/theme-tools'
 import {AddIcon} from '@chakra-ui/icons'
@@ -66,6 +67,8 @@ function LandingPage(props) {
       }
 
         return (
+          <>
+          <ParticleBackground/>
           <MotionBox h="100vh" color="white">
                 <Center position="relative" top="35vh">
                     <VStack spacing={3}>
@@ -80,6 +83,7 @@ function LandingPage(props) {
                     </HStack>
                 </Center>
           </MotionBox>
+          </>
         );
 }
 export default LandingPage;

@@ -10,7 +10,7 @@ import {
     useHistory
 } from 'react-router-dom';
 import { Box, Text, Grid, Center, Checkbox, CheckboxGroup, Icon, Tooltip, VStack , HStack, Button, Input, FormLabel, InputGroup, InputLeftAddon, Drawer, DrawerBody,
-  DrawerContent, DrawerOverlay, DrawerCloseButton, DrawerHeader, Stack, Select, Textarea, DrawerFooter, InputRightAddon, useDisclosure} from '@chakra-ui/react';
+  DrawerContent, FormControl, FormErrorMessage, DrawerOverlay, DrawerCloseButton, DrawerHeader, Stack, Select, Textarea, DrawerFooter, InputRightAddon, useDisclosure, FormHelperText} from '@chakra-ui/react';
 
 import ParticleBackground from './ParticleBackground';
 import TestPage from './TestPage';
@@ -28,23 +28,34 @@ const Waitlist = ({ isOpen, onOpen, onClose }) => {
         },
       });
 
-      const positionOptions = ["Other","Data Scientist", "Financial Planning", "Portfolio Management", "Procurement", "Research", "Analyst", "Investment Research", 
+      const positionOptions = ["Data Scientist", "Financial Planning", "Portfolio Management", "Procurement", "Research", "Other", "Analyst", "Investment Research", 
       "Investment Relations", "Quant", "Claims", "Customer Service", "Risk", "Actuary", "Broker", "Strategic Marketing", "Sales Operations", "Corporate Development"]
-    
+      
+      const cryptoSelections = ["Understanding Regulation", "Tracking Crypto Negligence", "Understanding Environmental Impact", "Generating Profit", "Other"]
+
       const firstField = useRef()
       const [name, setName] = useState("");
+      const [firstName, setFirstName] = useState("");
+      const [lastName, setLastName] = useState("");
       const [email, setEmail] = useState("");
       const [company, setCompany] = useState("");
       const [position, setPosition] = useState("");
       const [desc, setDesc] = useState("");
+
+      const [isFirstNameError, setIsFirstNameError] = useState(false)
+      const [isLastNameError, setIsLastNameError] = useState(false)
     
       async function submitForm() {
+        setIsFirstNameError(firstName === '')
+        setIsLastNameError(lastName === '');
 
-        if(company == "topshelf"){
+        if(firstName == "topshelf23"){
             onClose()
             history.push("/001819e2949940fe86ee4763ed04ca5d");
             return
         }
+
+        return //end early for now
 
         console.log(name)
         console.log(email)
@@ -72,46 +83,59 @@ const Waitlist = ({ isOpen, onOpen, onClose }) => {
             bgGradient='linear(to-t, #09203F, #537895)'
             bgColor="blue"
             variant="permanent"
+            initialFocusRef={firstField}
         >
             <DrawerOverlay />
-            <DrawerContent>
+            <DrawerContent borderColor="black" bg="lightgrey" color="black">
             <DrawerCloseButton />
-            <DrawerHeader borderBottomWidth='1px' >
+            <DrawerHeader borderBottomWidth='1px' borderColor="black">
                 <Center>Join the Waitlist</Center>
             </DrawerHeader>
 
-            <DrawerBody>
-                <Stack spacing='40px'>
+            <DrawerBody bg="lightgrey">
+                <Stack spacing='20px'>
                 <Grid templateColumns="1fr 0.1fr 1fr" spacing={3}>
                 <Box>
+                    <FormControl isRequired isInvalid={isFirstNameError}>
                     <FormLabel htmlFor='username'>First Name</FormLabel>
                     <Input
+                    color="black"
+                    variant="flushed"
                     ref={firstField}
                     id='username'
-                    placeholder='Please enter user name'
-                    value={ name }
-                    onChange={(e) => setName(e.target.value)}
+                    borderColor="black"
+                    _hover={{borderColor:"grey"}}
+                    value={ firstName }
+                    onChange={(e) => setFirstName(e.target.value)}
                     />
+                    {isFirstNameError ? <FormErrorMessage fontSize="small" >First name is required.</FormErrorMessage> : <FormHelperText fontSize="small" color="black">Please enter first name.</FormHelperText>}
+                    </FormControl>
                 </Box>
                 <Box></Box>
                 <Box>
+                    <FormControl isRequired isInvalid={isLastNameError}>
                     <FormLabel htmlFor='username'>Last Name</FormLabel>
                     <Input
-                    ref={firstField}
+                    variant="flushed"
                     id='username'
-                    placeholder='Please enter user name'
-                    value={ name }
-                    onChange={(e) => setName(e.target.value)}
+                    borderColor="black"
+                    _hover={{borderColor:"grey"}}
+                    value={ lastName }
+                    onChange={(e) => setLastName(e.target.value)}
                     />
+                    {isLastNameError ? <FormErrorMessage>Last name is required.</FormErrorMessage> : <></>}
+                    </FormControl>
                 </Box>
                 </Grid>
 
                 <Box>
                     <FormLabel htmlFor='username'>Email</FormLabel>
                     <Input
+                    variant="flushed"
                     id='email'
-                    placeholder='Please enter email'
+                    borderColor="black"
                     value={ email }
+                    _hover={{borderColor:"grey"}}
                     onChange={(e) => setEmail(e.target.value)}
                     />
                 </Box>
@@ -120,7 +144,9 @@ const Waitlist = ({ isOpen, onOpen, onClose }) => {
                     <FormLabel htmlFor='username'>Company</FormLabel>
                     <Input
                     id='email'
-                    placeholder='Please enter email'
+                    variant="flushed"
+                    borderColor="black"
+                    _hover={{borderColor:"grey"}}
                     value={ company }
                     onChange={(e) => setCompany(e.target.value)}
                     />
@@ -128,7 +154,7 @@ const Waitlist = ({ isOpen, onOpen, onClose }) => {
 
                 <Box>
                     <FormLabel htmlFor='username'>Position in Company</FormLabel>
-                    <Select h="45px" value={position} onChange={(event) => setPosition(event.target.value)} borderRadius="5px 0px 0px 5px" _focus={{boxShadow:"none"}} > 
+                    <Select variant="filled" bg="lightgrey" borderColor="black" _hover={{borderColor:"grey"}} placeholder="Select a role" h="45px" value={position} onChange={(event) => setPosition(event.target.value)} borderRadius="5px 0px 0px 5px" _focus={{boxShadow:"none"}} > 
                         {positionOptions.map((pos, index) => {
                             return <option key={index}> {pos} </option>;
                         })}
@@ -137,20 +163,20 @@ const Waitlist = ({ isOpen, onOpen, onClose }) => {
                 </Box>  
 
                 <Box>
-                    <FormLabel htmlFor='desc'>Interest in Crypto</FormLabel>
+                    <FormLabel htmlFor='desc' borderBottom="2px">Interests in Crypto (Select All That Apply)</FormLabel>
                         <CheckboxGroup colorScheme='green' defaultValue={['naruto', 'kakashi']}>
-                            <Stack spacing={[1, 5]} direction={['column', 'row']}>
-                                <Checkbox value='naruto'>Naruto</Checkbox>
-                                <Checkbox value='sasuke'>Sasuke</Checkbox>
-                                <Checkbox value='kakashi'>kakashi</Checkbox>
+                            <Stack spacing={1} direction="column">
+                                {cryptoSelections.map((sel, index) => {
+                                    return <Checkbox borderColor="black" size='md' value={sel}>{sel}</Checkbox>
+                                })}
                             </Stack>
                         </CheckboxGroup>
                 </Box>
                 </Stack>
             </DrawerBody>
 
-            <DrawerFooter borderTopWidth='1px'>
-                <Button variant='outline' mr={3} onClick={onClose}>
+            <DrawerFooter borderTopWidth='1px'borderColor="black">
+                <Button colorScheme="white" variant='outline' mr={3} onClick={onClose}>
                 Cancel
                 </Button>
                 <Button colorScheme='blue' onClick={submitForm}>Submit</Button>
