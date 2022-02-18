@@ -3,11 +3,12 @@ const { gql } = require('apollo-server-express');
 module.exports = gql`
     type Client {
         id: ID!
-        name: String!
+        firstName: String!
+        lastName: String!
         email: String!
-        company: String!
-        position: String!
-        desc: String!
+        company: String
+        position: String
+        interests: [String]
     }
 
     extend type Query {
@@ -15,6 +16,6 @@ module.exports = gql`
     }
 
     extend type Mutation {
-        submitForm(name: String!, email: String!, company: String!, position: String!, desc: String!): Boolean
+        submitForm(firstName: String!, lastName: String!, email: String!, company: String, position: String, interests: [String]): Client
     }
 `;
