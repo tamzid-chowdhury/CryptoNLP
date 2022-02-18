@@ -8,7 +8,7 @@ import {
     Redirect,
     useLocation
 } from 'react-router-dom';
-import { Box, Text, Grid, Center, Icon, Tooltip, VStack , HStack, Button, Input, FormLabel, InputGroup, InputLeftAddon, Drawer, DrawerBody,
+import { Table, TableCaption, Td, Tr, Th, Thead, Tbody, Tfoot, Box, Text, Grid, Center, Icon, Tooltip, VStack , HStack, Button, Input, FormLabel, InputGroup, InputLeftAddon, Drawer, DrawerBody,
   DrawerContent, DrawerOverlay, DrawerCloseButton, DrawerHeader, Stack, Select, Textarea, DrawerFooter, InputRightAddon, useDisclosure} from '@chakra-ui/react';
 
 import ParticleBackground from './ParticleBackground';
@@ -33,34 +33,46 @@ function Stats() {
     }
     if(data){
         clients = data.getClients;
+        console.log(clients)
     }
 
-    console.log(clients)
-
     return (
-            <Box h="100vh" color="white">
-                <VStack color="white">
-                    <Text marginTop="2vh" color="red.300">Waitlist for NLPCrypto</Text>
-                    <HStack spacing="300px">
-                            <Text color="green" borderBottom="1px">Name</Text>
-                            <Text color="pink" borderBottom="1px">Email</Text>
-                            <Text color="yellow" borderBottom="1px">Company</Text>
-                            <Text color="orange" borderBottom="1px">Position</Text>
-                            <Text color="brown" borderBottom="1px">Crypto Interest</Text>
-                    </HStack>
-                    {clients.map((client, key) => {
+        <>
+        <Center><Box position="relative" top="1vh" fontSize="xxx-large" color="red.300" h="10vh">Waitlist ({clients.length})</Box></Center>
+        <Center><Box h="90vh" w="90%">
+            <Table size='sm'>
+            <Thead>
+                <Tr>
+                <Th fontSize="large" color="red.300">No.</Th>
+                <Th fontSize="large" color="red.300">First Name</Th>
+                <Th color="red.300" fontSize="large">Last Name</Th>
+                <Th color="red.300" fontSize="large">Email</Th>
+                <Th color="red.300" fontSize="large">Company</Th>
+                <Th color="red.300" fontSize="large">Position in Company</Th>
+                <Th color="red.300" fontSize="large">Interests in Crypto</Th>
+                </Tr>
+            </Thead>
+            <Tbody>
+                {
+                    clients.map((client, index) => {
                         return (
-                            <HStack spacing="300px">
-                            <Text key={key} color="green">{client.firstName}</Text>
-                            <Text key={key} color="brown">{client.lastName}</Text>
-                            <Text key={key} color="pink">{client.email}</Text>
-                            <Text key={key} color="yellow">{client.company}</Text>
-                            <Text key={key} color="orange">{client.position}</Text>
-                            </HStack>
+                            <Tr color="white" key={index}>
+                                <Td>{index+1}</Td>
+                                <Td>{client.firstName}</Td>
+                                <Td>{client.lastName}</Td>
+                                <Td>{client.email}</Td>
+                                <Td>{client.company}</Td>
+                                <Td>{client.position}</Td>
+                                <Td>{client.interests.join()}</Td>
+                            </Tr>
                         )
-                    })}
-                </VStack>
-            </Box>
+                    })
+                }
+
+            </Tbody>
+</Table>
+        </Box></Center>
+        </>
     )
 }
 
