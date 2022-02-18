@@ -37,19 +37,19 @@ function Stats() {
     }
 
     return (
-        <Box h="110vh"> 
+        <Box h="110vh" w="100vw" bg="#537895"> 
         <Center><Box position="relative" top="1vh" fontSize="xxx-large" color="red.300" h="10vh">Waitlist ({clients.length})</Box></Center>
-        <Center><Box h="95vh" w="90%" overflow="scroll">
+        <Center><Box h="95vh" w="90%" overflow="visible">
             <Table size='sm'>
             <Thead>
                 <Tr>
-                <Th fontSize="large" color="red.300">No.</Th>
-                <Th fontSize="large" color="red.300">First Name</Th>
-                <Th color="red.300" fontSize="large">Last Name</Th>
-                <Th color="red.300" fontSize="large">Email</Th>
-                <Th color="red.300" fontSize="large">Company</Th>
-                <Th color="red.300" fontSize="large">Position in Company</Th>
-                <Th color="red.300" fontSize="large">Interests in Crypto</Th>
+                <Th fontSize="2xl" color="red.300">No.</Th>
+                <Th fontSize="2xl" color="red.300">First Name</Th>
+                <Th color="red.300" fontSize="2xl">Last Name</Th>
+                <Th color="red.300" fontSize="2xl">Email</Th>
+                <Th color="red.300" fontSize="2xl">Company</Th>
+                <Th color="red.300" fontSize="2xl">Position in Company</Th>
+                <Th color="red.300" fontSize="2xl">Interests in Crypto</Th>
                 </Tr>
             </Thead>
             <Tbody>
@@ -57,13 +57,13 @@ function Stats() {
                     clients.map((client, index) => {
                         return (
                             <Tr color="white" key={index}>
-                                <Td>{index+1}</Td>
-                                <Td>{client.firstName}</Td>
-                                <Td>{client.lastName}</Td>
-                                <Td>{client.email}</Td>
-                                <Td>{client.company}</Td>
-                                <Td>{client.position}</Td>
-                                <Td>{client.interests.join()}</Td>
+                                <Td fontSize="large" >{index + 1}</Td>
+                                <Td fontSize="large" >{client.firstName}</Td>
+                                <Td fontSize="large" >{client.lastName}</Td>
+                                <Td fontSize="large" >{client.email}</Td>
+                                <Td fontSize="large" >{client.company}</Td>
+                                <Td fontSize="large" >{client.position}</Td>
+                                <Td fontSize="large" >{client.interests.join()}</Td>
                             </Tr>
                         )
                     })
