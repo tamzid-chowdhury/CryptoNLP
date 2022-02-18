@@ -73,8 +73,8 @@ function TestPage(props) {
                     </Box>
                 </MotionBox>
             </Box>
-            {currentSection == "regulation" && <RegulationPage/>}
-            {currentSection == "investment" && <InvestmentPage/>}
+            {currentSection == "regulation" && <RegulationPage onOpen={props.onOpen}/>}
+            {currentSection == "investment" && <InvestmentPage onOpen={props.onOpen}/>}
         </Box>
     );
 }
