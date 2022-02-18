@@ -51,11 +51,11 @@ function Stats() {
                     {clients.map((client, key) => {
                         return (
                             <HStack spacing="300px">
-                            <Text key={key} color="green">{client.name}</Text>
+                            <Text key={key} color="green">{client.firstName}</Text>
+                            <Text key={key} color="brown">{client.lastName}</Text>
                             <Text key={key} color="pink">{client.email}</Text>
                             <Text key={key} color="yellow">{client.company}</Text>
                             <Text key={key} color="orange">{client.position}</Text>
-                            <Text key={key} color="brown">{client.desc}</Text>
                             </HStack>
                         )
                     })}
@@ -69,11 +69,12 @@ export default Stats;
 export const GET_CLIENTS = gql`
     {
         getClients {
-            name
+            firstName
+            lastName
             email
             company
             position
-            desc
+            interests
         }
     }
 `;

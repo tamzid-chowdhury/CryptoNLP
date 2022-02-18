@@ -69,18 +69,17 @@ const Waitlist = ({ isOpen, onOpen, onClose }) => {
         console.log(position)
         console.log(interests)
 
-        return //end early for now
-
     
-        // const { data } = await SubmitForm({
-        //   variables: {
-        //       name:name,
-        //       email: email,
-        //       company: company,
-        //       position: position,
-        //       desc: desc
-        //   },
-        // });
+        const { data } = await SubmitForm({
+          variables: {
+              firstName: firstName,
+              lastName: lastName,
+              email: email,
+              company: company,
+              position: position,
+              interests: interests
+          },
+        });
       }
     return (
         <Box bgColor="red">
@@ -213,7 +212,14 @@ const Waitlist = ({ isOpen, onOpen, onClose }) => {
 export default Waitlist;
 
 const SUBMIT_FORM = gql`
-    mutation ($name: String!, $email: String!, $company: String!, $position: String!, $desc: String!) {
-        submitForm(name: $name, email: $email, company: $company, position: $position, desc: $desc)
+    mutation ($firstName: String!, $lastName: String!, $email: String!, $company: String, $position: String, $interests: [String]) {
+        submitForm(firstName: $firstName, lastName: $lastName, email: $email, company: $company, position: $position, interests: $interests){
+            firstName
+            lastName
+            email
+            company
+            position
+            interests
+        }
     }
 `;
