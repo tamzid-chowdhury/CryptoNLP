@@ -34,17 +34,20 @@ const Waitlist = ({ isOpen, onOpen, onClose }) => {
       const cryptoSelections = ["Understanding Regulation", "Tracking Crypto Negligence", "Understanding Environmental Impact", "Generating Profit", "Other"]
 
       const firstField = useRef()
-      const [name, setName] = useState("");
       const [firstName, setFirstName] = useState("");
       const [lastName, setLastName] = useState("");
       const [email, setEmail] = useState("");
       const [company, setCompany] = useState("");
       const [position, setPosition] = useState("");
-      const [desc, setDesc] = useState("");
+      const [interests, setInterests] = useState([]);
 
       const [isFirstNameError, setIsFirstNameError] = useState(false)
       const [isLastNameError, setIsLastNameError] = useState(false)
       const [isEmailError, setIsEmailError] = useState(false)
+
+      function updateInterests(e) {
+          console.log(e)
+      }
     
       async function submitForm() {
         setIsFirstNameError(firstName === '')
@@ -57,23 +60,24 @@ const Waitlist = ({ isOpen, onOpen, onClose }) => {
             return
         }
 
+        console.log(firstName)
+        console.log(lastName)
+        console.log(email)
+        console.log(position)
+        console.log(interests)
+
         return //end early for now
 
-        console.log(name)
-        console.log(email)
-        console.log(company)
-        console.log(position)
-        console.log(desc)
     
-        const { data } = await SubmitForm({
-          variables: {
-              name:name,
-              email: email,
-              company: company,
-              position: position,
-              desc: desc
-          },
-        });
+        // const { data } = await SubmitForm({
+        //   variables: {
+        //       name:name,
+        //       email: email,
+        //       company: company,
+        //       position: position,
+        //       desc: desc
+        //   },
+        // });
       }
     return (
         <Box bgColor="red">
@@ -179,7 +183,7 @@ const Waitlist = ({ isOpen, onOpen, onClose }) => {
 
                 <Box>
                     <FormLabel fontSize="lg" htmlFor='desc' borderBottom="2px">Interests in Crypto (Select All That Apply)</FormLabel>
-                        <CheckboxGroup colorScheme='green' defaultValue={['naruto', 'kakashi']}>
+                        <CheckboxGroup colorScheme='green' onChange={(event) => setInterests(event)}>
                             <Stack spacing={1} direction="column">
                                 {cryptoSelections.map((sel, index) => {
                                     return <Checkbox borderColor="lightgrey" size='lg' value={sel}>{sel}</Checkbox>

@@ -74,8 +74,6 @@ function Article(props) {
     const title = props.article.title;
     const extractions = props.article.extractions;
     const metadata = props.article.metadata; 
-    console.log(textArray)
-    console.log(extractions)
 
     return (
         <MotionBox className="article" initial={{scale:0, opacity:0}} animate={{scale:1, opacity:1}} transition={{duration:0.5}} marginTop="6vh" w="38vw" h="80vh" bgColor="#1b222d" borderRadius="4%" overflow="scroll">
@@ -102,7 +100,7 @@ function Article(props) {
                                                     if(text.extType == "slot"){
                                                         return (
                                                             <Tooltip  bgColor="#E50914" color="white" label={text.slotValue} placement='top'>
-                                                            <MotionBox whileHover={{ color:"red"}} color="#4b8ae1" as="span">
+                                                            <MotionBox whileHover={{ color:"#E50914"}} color="#4b8ae1" as="span">
                                                                 {text.text}
                                                             </MotionBox>
                                                             </Tooltip>
