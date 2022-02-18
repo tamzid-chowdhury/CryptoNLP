@@ -68,7 +68,6 @@ function LandingPage(props) {
           <>
           
           <MotionBox variants={titleVariants} initial="hidden" animate="visible" exit="hidden" h="100vh" color="white">
-            <ParticleBackground/>
                 <Center position="relative" top="35vh">
                     <VStack spacing={3}>
                     <MotionBox variants={titleVariants} initial="hidden" animate="visible" exit="hidden" className="titlefont" fontSize={{ base: '15px', md: '40px', lg: '50px' }}>Understand <Box as="span" color="red.300">Crypto </Box>Like Never Before</MotionBox>
