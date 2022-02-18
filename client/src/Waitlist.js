@@ -169,7 +169,7 @@ const Waitlist = ({ isOpen, onOpen, onClose }) => {
                     <FormLabel fontSize="lg" htmlFor='username'>Position in Company</FormLabel>
                     <Select _focus={{borderColor:"white"}}  bg="#1b222d"  variant="filled" borderColor="lightgrey" _hover={{borderColor:"grey"}} placeholder="Select a role" h="45px" value={position} onChange={(event) => setPosition(event.target.value)} borderRadius="5px 0px 0px 5px" _focus={{boxShadow:"none"}} > 
                         {positionOptions.map((pos, index) => {
-                            return <option key={index}> {pos} </option>;
+                            return <option style={{color:"black"}} key={index}> {pos} </option>
                         })}
                     </Select>
                     <FormHelperText fontSize="small" color="lightgrey">Please select the option that best describes your role in the company</FormHelperText>
