@@ -115,6 +115,12 @@ const Waitlist = ({ isOpen, onOpen, onClose, submitted, setSubmitted}) => {
         });
 
         setTimeout(() => {
+            setFirstName('');
+            setLastName('');
+            setCompany('');
+            setEmail('');
+            setPosition('');
+            setInterests([]);
             setLoad(false)
             setTimeout(() => {
                 setSubmitted(true);
