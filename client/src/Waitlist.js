@@ -103,6 +103,7 @@ const Waitlist = ({ isOpen, onOpen, onClose }) => {
                     <Input
                     color="lightgrey"
                     variant="outline"
+                    _focus={{borderColor:"white"}} 
                     ref={firstField}
                     id='username'
                     borderColor="lightgrey"
@@ -118,6 +119,7 @@ const Waitlist = ({ isOpen, onOpen, onClose }) => {
                     <FormControl isRequired isInvalid={isLastNameError}>
                     <FormLabel fontSize="lg" htmlFor='username'>Last Name</FormLabel>
                     <Input
+                    _focus={{borderColor:"white"}} 
                     variant="outline"
                     id='username'
                     borderColor="lightgrey"
@@ -134,6 +136,7 @@ const Waitlist = ({ isOpen, onOpen, onClose }) => {
                     <FormControl isRequired isInvalid={isEmailError}>
                     <FormLabel fontSize="lg" htmlFor='username'>Email Address</FormLabel>
                     <Input
+                    _focus={{borderColor:"white"}} 
                     variant="outline"
                     id='email'
                     borderColor="lightgrey"
@@ -152,6 +155,7 @@ const Waitlist = ({ isOpen, onOpen, onClose }) => {
                     id='email'
                     variant="outline"
                     borderColor="lightgrey"
+                    _focus={{borderColor:"white"}} 
                     _hover={{borderColor:"grey"}}
                     value={ company }
                     onChange={(e) => setCompany(e.target.value)}
@@ -163,7 +167,7 @@ const Waitlist = ({ isOpen, onOpen, onClose }) => {
                 <Box>
                     <FormControl>
                     <FormLabel fontSize="lg" htmlFor='username'>Position in Company</FormLabel>
-                    <Select bg="#1b222d"  variant="filled" borderColor="lightgrey" _hover={{borderColor:"grey"}} placeholder="Select a role" h="45px" value={position} onChange={(event) => setPosition(event.target.value)} borderRadius="5px 0px 0px 5px" _focus={{boxShadow:"none"}} > 
+                    <Select _focus={{borderColor:"white"}}  bg="#1b222d"  variant="filled" borderColor="lightgrey" _hover={{borderColor:"grey"}} placeholder="Select a role" h="45px" value={position} onChange={(event) => setPosition(event.target.value)} borderRadius="5px 0px 0px 5px" _focus={{boxShadow:"none"}} > 
                         {positionOptions.map((pos, index) => {
                             return <option key={index}> {pos} </option>;
                         })}
