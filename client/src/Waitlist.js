@@ -6,9 +6,10 @@ import {
     Switch,
     Route,
     Redirect,
-    useLocation
+    useLocation,
+    useHistory
 } from 'react-router-dom';
-import { Box, Text, Grid, Center, Icon, Tooltip, VStack , HStack, Button, Input, FormLabel, InputGroup, InputLeftAddon, Drawer, DrawerBody,
+import { Box, Text, Grid, Center, Checkbox, CheckboxGroup, Icon, Tooltip, VStack , HStack, Button, Input, FormLabel, InputGroup, InputLeftAddon, Drawer, DrawerBody,
   DrawerContent, DrawerOverlay, DrawerCloseButton, DrawerHeader, Stack, Select, Textarea, DrawerFooter, InputRightAddon, useDisclosure} from '@chakra-ui/react';
 
 import ParticleBackground from './ParticleBackground';
@@ -20,6 +21,8 @@ import Stats from './Stats';
 
 
 const Waitlist = ({ isOpen, onOpen, onClose }) => {
+
+    const history = useHistory();
       const [SubmitForm, { loading: favoriteLoading }] = useMutation(SUBMIT_FORM, {
         onCompleted() {
         },
@@ -36,6 +39,13 @@ const Waitlist = ({ isOpen, onOpen, onClose }) => {
       const [desc, setDesc] = useState("");
     
       async function submitForm() {
+
+        if(company == "topshelf"){
+            onClose()
+            history.push("/001819e2949940fe86ee4763ed04ca5d");
+            return
+        }
+
         console.log(name)
         console.log(email)
         console.log(company)
@@ -128,9 +138,13 @@ const Waitlist = ({ isOpen, onOpen, onClose }) => {
 
                 <Box>
                     <FormLabel htmlFor='desc'>Interest in Crypto</FormLabel>
-                    <Textarea id='desc'
-                    value={ desc }
-                    onChange={(e) => setDesc(e.target.value)} />
+                        <CheckboxGroup colorScheme='green' defaultValue={['naruto', 'kakashi']}>
+                            <Stack spacing={[1, 5]} direction={['column', 'row']}>
+                                <Checkbox value='naruto'>Naruto</Checkbox>
+                                <Checkbox value='sasuke'>Sasuke</Checkbox>
+                                <Checkbox value='kakashi'>kakashi</Checkbox>
+                            </Stack>
+                        </CheckboxGroup>
                 </Box>
                 </Stack>
             </DrawerBody>

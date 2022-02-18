@@ -44,7 +44,7 @@ const App = () => {
           <Switch location={location} key={location.pathname}>
             <Route exact path='/'><LandingPage onOpen={onOpen}/></Route>
             <Route exact path='/demo'><TestPage onOpen={onOpen}/></Route>
-            <Route exact path='/stats'><Stats/></Route>
+            <Route exact path='/001819e2949940fe86ee4763ed04ca5d'><Stats/></Route>
           </Switch>
         
         <Waitlist isOpen={isOpen} onClose={onClose}/>
