@@ -25,6 +25,8 @@ const App = () => {
   const location = useLocation();
   console.log(location)
 
+  const [submitted, setSubmitted] = useState(false);
+
   const { isOpen, onOpen, onClose } = useDisclosure()
 
   const containerVariants = {
@@ -47,7 +49,7 @@ const App = () => {
             <Route exact path='/001819e2949940fe86ee4763ed04ca5d'><Stats/></Route>
           </Switch>
         
-        <Waitlist isOpen={isOpen} onClose={onClose}/>
+        <Waitlist submitted={submitted} setSubmitted={setSubmitted} isOpen={isOpen} onClose={onClose}/>
         </AnimatePresence>
 
     </Box>

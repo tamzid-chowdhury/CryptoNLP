@@ -1,4 +1,4 @@
-import React, {useContext, useRef, useState} from 'react';
+import React, {useContext, useEffect, useRef, useState} from 'react';
 import { useQuery, useMutation } from '@apollo/client';
 import { gql } from "@apollo/client";
 import {
@@ -20,13 +20,24 @@ import {motion, AnimatePresence, useAnimation} from 'framer-motion';
 import Stats from './Stats';
 
 
-const Waitlist = ({ isOpen, onOpen, onClose }) => {
+const Waitlist = ({ isOpen, onOpen, onClose, submitted, setSubmitted}) => {
 
     const history = useHistory();
       const [SubmitForm, { loading: favoriteLoading }] = useMutation(SUBMIT_FORM, {
         onCompleted() {
         },
       });
+
+      useEffect(() => {
+        if(submitted == true){
+            setTimeout(() => {
+                onClose()
+                setShowClosing(false)
+            },2000)   
+        }
+      }, [submitted])
+
+      const [showClosing, setShowClosing] = useState(true);
 
       const positionOptions = ["Data Scientist", "Financial Planning", "Portfolio Management", "Procurement", "Research", "Other", "Analyst", "Investment Research", 
       "Investment Relations", "Quant", "Claims", "Customer Service", "Risk", "Actuary", "Broker", "Strategic Marketing", "Sales Operations", "Corporate Development"]
@@ -45,7 +56,7 @@ const Waitlist = ({ isOpen, onOpen, onClose }) => {
       const [isLastNameError, setIsLastNameError] = useState(false)
       const [isEmailError, setIsEmailError] = useState(false)
 
-
+      const [load, setLoad] = useState(false)
 
       function handleKeyPress(event) {
         if(event.key === 'Enter'){
@@ -58,9 +69,30 @@ const Waitlist = ({ isOpen, onOpen, onClose }) => {
       }
     
       async function submitForm() {
-        setIsFirstNameError(firstName === '')
-        setIsLastNameError(lastName === '');
-        setIsEmailError(email === '')
+        if(firstName === ''){
+            setIsFirstNameError(true)
+        }
+        else{
+            setIsFirstNameError(false)
+        }
+
+        if(lastName === ''){
+            setIsLastNameError(true)
+        }
+        else{
+            setIsLastNameError(false)
+        }
+
+        if(email === ''){
+            setIsEmailError(true)
+        }
+        else{
+            setIsEmailError(false)
+        }
+
+        if(firstName === '' || lastName === ''|| email === '') {
+            return
+        }
 
         console.log(firstName)
         console.log(lastName)
@@ -69,7 +101,8 @@ const Waitlist = ({ isOpen, onOpen, onClose }) => {
         console.log(position)
         console.log(interests)
 
-    
+        setLoad(true)
+
         const { data } = await SubmitForm({
           variables: {
               firstName: firstName,
@@ -80,9 +113,18 @@ const Waitlist = ({ isOpen, onOpen, onClose }) => {
               interests: interests
           },
         });
+
+        setTimeout(() => {
+            setLoad(false)
+            setTimeout(() => {
+                setSubmitted(true);
+            },500)
+        }, 1000)
+
+
       }
     return (
-        <Box bgColor="red">
+        <Box >
         <Drawer
             isOpen={isOpen}
             placement='right'
@@ -100,7 +142,7 @@ const Waitlist = ({ isOpen, onOpen, onClose }) => {
                 <Center><Text borderBottom="1px" fontSize='25px'>Join the Waitlist</Text></Center>
             </DrawerHeader>
 
-            <DrawerBody>
+            {!submitted ? <DrawerBody borderTop="1px">
                 <Stack spacing='25px'>
                 <Grid templateColumns="1fr 0.1fr 1fr" spacing={3}>
                 <Box>
@@ -195,13 +237,19 @@ const Waitlist = ({ isOpen, onOpen, onClose }) => {
                         </CheckboxGroup>
                 </Box>
                 </Stack>
-            </DrawerBody>
+            </DrawerBody> : 
+            <DrawerBody borderTop="1px">
+                <Box marginTop="30vh">
+                    <Text textAlign="center" fontSize="20px">Thank you {firstName} for joining the waitlist!</Text>
+                    {showClosing && <Text className="closing"  textAlign="center" fontSize="20px">Automatically closing in three seconds...</Text>}
+                </Box>
+            </DrawerBody>}
 
             <DrawerFooter borderTopWidth='1px'borderColor="lightgrey">
                 <Button size="lg" colorScheme="white" variant='outline' mr={3} onClick={onClose}>
                 Cancel
                 </Button>
-                <Button size="lg" colorScheme='blue' onClick={submitForm}>Submit</Button>
+                <Button isLoading={load} size="lg" colorScheme='blue' onClick={submitForm}>Submit</Button>
             </DrawerFooter>
             </DrawerContent>
         </Drawer>

@@ -37,9 +37,9 @@ function Stats() {
     }
 
     return (
-        <>
+        <Box h="110vh"> 
         <Center><Box position="relative" top="1vh" fontSize="xxx-large" color="red.300" h="10vh">Waitlist ({clients.length})</Box></Center>
-        <Center><Box h="90vh" w="90%">
+        <Center><Box h="95vh" w="90%" overflow="scroll">
             <Table size='sm'>
             <Thead>
                 <Tr>
@@ -72,7 +72,7 @@ function Stats() {
             </Tbody>
 </Table>
         </Box></Center>
-        </>
+        </Box>
     )
 }
 
