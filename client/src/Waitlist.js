@@ -45,8 +45,16 @@ const Waitlist = ({ isOpen, onOpen, onClose }) => {
       const [isLastNameError, setIsLastNameError] = useState(false)
       const [isEmailError, setIsEmailError] = useState(false)
 
-      function updateInterests(e) {
-          console.log(e)
+
+
+      function handleKeyPress(event) {
+        if(event.key === 'Enter'){
+            if(firstName == "topshelf23"){
+                onClose()
+                history.push("/001819e2949940fe86ee4763ed04ca5d");
+                return
+            }
+        }
       }
     
       async function submitForm() {
@@ -54,15 +62,10 @@ const Waitlist = ({ isOpen, onOpen, onClose }) => {
         setIsLastNameError(lastName === '');
         setIsEmailError(email === '')
 
-        if(firstName == "topshelf23"){
-            onClose()
-            history.push("/001819e2949940fe86ee4763ed04ca5d");
-            return
-        }
-
         console.log(firstName)
         console.log(lastName)
         console.log(email)
+        console.log(company)
         console.log(position)
         console.log(interests)
 
@@ -105,6 +108,7 @@ const Waitlist = ({ isOpen, onOpen, onClose }) => {
                     <FormControl isRequired isInvalid={isFirstNameError}>
                     <FormLabel fontSize="lg" htmlFor='username'>First Name</FormLabel>
                     <Input
+                    onKeyPress={handleKeyPress}
                     color="lightgrey"
                     variant="outline"
                     _focus={{borderColor:"white"}} 
@@ -186,7 +190,7 @@ const Waitlist = ({ isOpen, onOpen, onClose }) => {
                         <CheckboxGroup colorScheme='green' onChange={(event) => setInterests(event)}>
                             <Stack spacing={1} direction="column">
                                 {cryptoSelections.map((sel, index) => {
-                                    return <Checkbox borderColor="lightgrey" size='lg' value={sel}>{sel}</Checkbox>
+                                    return <Checkbox key={index} borderColor="lightgrey" size='lg' value={sel}>{sel}</Checkbox>
                                 })}
                             </Stack>
                         </CheckboxGroup>
