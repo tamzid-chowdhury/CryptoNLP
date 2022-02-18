@@ -44,10 +44,12 @@ const Waitlist = ({ isOpen, onOpen, onClose }) => {
 
       const [isFirstNameError, setIsFirstNameError] = useState(false)
       const [isLastNameError, setIsLastNameError] = useState(false)
+      const [isEmailError, setIsEmailError] = useState(false)
     
       async function submitForm() {
         setIsFirstNameError(firstName === '')
         setIsLastNameError(lastName === '');
+        setIsEmailError(email === '')
 
         if(firstName == "topshelf23"){
             onClose()
@@ -86,88 +88,97 @@ const Waitlist = ({ isOpen, onOpen, onClose }) => {
             initialFocusRef={firstField}
         >
             <DrawerOverlay />
-            <DrawerContent borderColor="black" bg="lightgrey" color="black">
+            <DrawerContent bg="#1b222d" color="lightgrey">
             <DrawerCloseButton />
-            <DrawerHeader borderBottomWidth='1px' borderColor="black">
-                <Center>Join the Waitlist</Center>
+            <DrawerHeader >
+                <Center><Text borderBottom="1px" fontSize='25px'>Join the Waitlist</Text></Center>
             </DrawerHeader>
 
-            <DrawerBody bg="lightgrey">
-                <Stack spacing='20px'>
+            <DrawerBody>
+                <Stack spacing='25px'>
                 <Grid templateColumns="1fr 0.1fr 1fr" spacing={3}>
                 <Box>
                     <FormControl isRequired isInvalid={isFirstNameError}>
-                    <FormLabel htmlFor='username'>First Name</FormLabel>
+                    <FormLabel fontSize="lg" htmlFor='username'>First Name</FormLabel>
                     <Input
-                    color="black"
-                    variant="flushed"
+                    color="lightgrey"
+                    variant="outline"
                     ref={firstField}
                     id='username'
-                    borderColor="black"
+                    borderColor="lightgrey"
                     _hover={{borderColor:"grey"}}
                     value={ firstName }
                     onChange={(e) => setFirstName(e.target.value)}
                     />
-                    {isFirstNameError ? <FormErrorMessage fontSize="small" >First name is required.</FormErrorMessage> : <FormHelperText fontSize="small" color="black">Please enter first name.</FormHelperText>}
+                    {isFirstNameError ? <FormErrorMessage fontSize="small" >First name is required.</FormErrorMessage> : <FormHelperText fontSize="small" color="lightgrey">Please enter first name.</FormHelperText>}
                     </FormControl>
                 </Box>
                 <Box></Box>
                 <Box>
                     <FormControl isRequired isInvalid={isLastNameError}>
-                    <FormLabel htmlFor='username'>Last Name</FormLabel>
+                    <FormLabel fontSize="lg" htmlFor='username'>Last Name</FormLabel>
                     <Input
-                    variant="flushed"
+                    variant="outline"
                     id='username'
-                    borderColor="black"
+                    borderColor="lightgrey"
                     _hover={{borderColor:"grey"}}
                     value={ lastName }
                     onChange={(e) => setLastName(e.target.value)}
                     />
-                    {isLastNameError ? <FormErrorMessage>Last name is required.</FormErrorMessage> : <></>}
+                    {isLastNameError ? <FormErrorMessage>Last name is required.</FormErrorMessage> : <FormHelperText fontSize="small" color="lightgrey">Please enter last name.</FormHelperText>}
                     </FormControl>
                 </Box>
                 </Grid>
 
                 <Box>
-                    <FormLabel htmlFor='username'>Email</FormLabel>
+                    <FormControl isRequired isInvalid={isEmailError}>
+                    <FormLabel fontSize="lg" htmlFor='username'>Email Address</FormLabel>
                     <Input
-                    variant="flushed"
+                    variant="outline"
                     id='email'
-                    borderColor="black"
+                    borderColor="lightgrey"
                     value={ email }
                     _hover={{borderColor:"grey"}}
                     onChange={(e) => setEmail(e.target.value)}
                     />
+                    {isLastNameError ? <FormErrorMessage>Email address is required to join our waitlist.</FormErrorMessage> : <FormHelperText fontSize="small" color="lightgrey">Please enter email address to recieve updates on our website.</FormHelperText>}
+                    </FormControl>
                 </Box>
 
                 <Box>
-                    <FormLabel htmlFor='username'>Company</FormLabel>
+                    <FormControl>
+                    <FormLabel fontSize="lg" htmlFor='username'>Company</FormLabel>
                     <Input
                     id='email'
-                    variant="flushed"
-                    borderColor="black"
+                    variant="outline"
+                    borderColor="lightgrey"
                     _hover={{borderColor:"grey"}}
                     value={ company }
                     onChange={(e) => setCompany(e.target.value)}
                     />
+                    <FormHelperText fontSize="small" color="lightgrey">Please enter your company of employment.</FormHelperText>
+                    </FormControl>
                 </Box>  
 
                 <Box>
-                    <FormLabel htmlFor='username'>Position in Company</FormLabel>
-                    <Select variant="filled" bg="lightgrey" borderColor="black" _hover={{borderColor:"grey"}} placeholder="Select a role" h="45px" value={position} onChange={(event) => setPosition(event.target.value)} borderRadius="5px 0px 0px 5px" _focus={{boxShadow:"none"}} > 
+                    <FormControl>
+                    <FormLabel fontSize="lg" htmlFor='username'>Position in Company</FormLabel>
+                    <Select bg="#1b222d"  variant="filled" borderColor="lightgrey" _hover={{borderColor:"grey"}} placeholder="Select a role" h="45px" value={position} onChange={(event) => setPosition(event.target.value)} borderRadius="5px 0px 0px 5px" _focus={{boxShadow:"none"}} > 
                         {positionOptions.map((pos, index) => {
                             return <option key={index}> {pos} </option>;
                         })}
                     </Select>
+                    <FormHelperText fontSize="small" color="lightgrey">Please select the option that best describes your role in the company</FormHelperText>
+                    </FormControl>
 
                 </Box>  
 
                 <Box>
-                    <FormLabel htmlFor='desc' borderBottom="2px">Interests in Crypto (Select All That Apply)</FormLabel>
+                    <FormLabel fontSize="lg" htmlFor='desc' borderBottom="2px">Interests in Crypto (Select All That Apply)</FormLabel>
                         <CheckboxGroup colorScheme='green' defaultValue={['naruto', 'kakashi']}>
                             <Stack spacing={1} direction="column">
                                 {cryptoSelections.map((sel, index) => {
-                                    return <Checkbox borderColor="black" size='md' value={sel}>{sel}</Checkbox>
+                                    return <Checkbox borderColor="lightgrey" size='lg' value={sel}>{sel}</Checkbox>
                                 })}
                             </Stack>
                         </CheckboxGroup>
@@ -175,11 +186,11 @@ const Waitlist = ({ isOpen, onOpen, onClose }) => {
                 </Stack>
             </DrawerBody>
 
-            <DrawerFooter borderTopWidth='1px'borderColor="black">
-                <Button colorScheme="white" variant='outline' mr={3} onClick={onClose}>
+            <DrawerFooter borderTopWidth='1px'borderColor="lightgrey">
+                <Button size="lg" colorScheme="white" variant='outline' mr={3} onClick={onClose}>
                 Cancel
                 </Button>
-                <Button colorScheme='blue' onClick={submitForm}>Submit</Button>
+                <Button size="lg" colorScheme='blue' onClick={submitForm}>Submit</Button>
             </DrawerFooter>
             </DrawerContent>
         </Drawer>
