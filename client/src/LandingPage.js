@@ -24,7 +24,7 @@ function LandingPage(props) {
 
     const menuVariants = {
         hidden: {
-            opacity:0, scale:0,
+            opacity:0, scale:0.8,
          transition: {
             type: "spring",
             duration: 0.1,
@@ -44,7 +44,7 @@ function LandingPage(props) {
       const titleVariants = {
         hidden: {
             opacity:0,
-            scale:0,
+            scale:0.8,
          transition: {
             type: "spring",
             duration: 1,
