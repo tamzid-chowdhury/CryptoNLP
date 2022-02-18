@@ -1,0 +1,165 @@
+{
+    "article4": {
+        "title": "Chainalysis Raises $100 Million at $2 Billion Valuation",
+        "textArr": [
+            {
+                "type":"normal",
+                "text":"The "
+            },
+            {
+                "type":"extraction",
+                "extArr": [
+                    {
+                        "extType":"slot",
+                        "slotValue":"Regulatory Agency",
+                        "text":"U.S. Securities and Exchange Commission"
+                    },
+                    {
+                        "extType":"nonslot",
+                        "text":" is currently investigating "
+                    },
+                    {
+                        "extType":"slot",
+                        "slotValue":"Digital Asset",
+                        "text":" Uniswap Labs"
+                    }
+                ]
+            },
+            {
+                "type":"normal",
+                "text":", the main developer behind one of the world's largest cryptocurrency exchanges, Uniswap, the Wall Street Journal reported on Friday, citing people familiar with the matter. Enforcement attorneys are looking for more information on how investors use Uniswap and the manner in which it is marketed, the report said. Uniswap did not immediately reply to a Reuters request for comment. "
+            },
+            {
+                "type":"extraction",
+                "extArr": [
+                    {
+                        "extType":"slot",
+                        "slotValue":"Regulatory Agency",
+                        "text":"SEC's"
+                    },
+                    {
+                        "extType":"nonslot",
+                        "text":" probe into "
+                    },
+                    {
+                        "extType":"slot",
+                        "slotValue":"Digital Asset",
+                        "text":" Uniswap Labs"
+                    },
+                    {
+                        "extType":"nonslot",
+                        "text":", comes amid heightened regulatory interest into cryptocurrencies "
+                    }
+                ]
+            },
+            {
+                "type":"normal",
+                "text":"and the digital asset market, with Chair Gary Gensler calling on "
+            },
+            {
+                "type":"extraction",
+                "extArr": [
+                    {
+                        "extType":"slot",
+                        "slotValue":"Regulatory Agency",
+                        "text":"Congress"
+                    },
+                    {
+                        "extType":"nonslot",
+                        "text":" last month to give the agency more authority to better police crypto trading "
+                    }
+                ]
+            },
+            {
+                "type":"normal",
+                "text":" and lending. Uniswap is a crypto marketplace for decentralized finance or DeFi developers, traders and liquidity providers. DeFi is an open network and works on a peer-to-peer system, where transactions are not routed through a centralized system such as a bank or a brokerage. Gensler in August had called on lawmakers to give the "
+            },
+            {
+                "type":"extraction",
+                "extArr": [
+                    {
+                        "extType":"slot",
+                        "slotValue":"Regulatory Agency",
+                        "text":"SEC"
+                    },
+                    {
+                        "extType":"nonslot",
+                        "text":" more power to oversee DeFi platforms,"
+                    }
+                ]
+            },
+            {
+                "type":"normal",
+                "text":" which are not regulated in the United States."
+            }
+            
+        ],
+        "extractions":
+        [
+            {
+                "text":"U.S. Securities and Exchange Commission (SEC) is investigating Uniswap Labs",
+                "details":
+                [
+                    {
+                        "slot":"U.S. Securities and Exchange Commission",
+                        "slotValue":"Regulatory Agency"
+                    },
+                    {
+                        "slot":"Uniswap Labs",
+                        "slotValue":"Digital Asset"
+                    }
+                ],
+                "impact":
+                [
+                    {
+                        "property":"Regulation",
+                        "propertyValue": "Increased"
+                    }
+                ]
+            },
+            {
+                "text":"SEC's probe into Uniswap Labs comes amid a heightened regulatory interest into crytocurrencies.",
+                "details":
+                [
+                    {
+                        "slot":"Uniswap Labs",
+                        "slotValue":"Digital Asset"
+                    },
+                    {
+                        "slot":"SEC's",
+                        "slotValue":"Regulatory Agency"
+                    }
+                ],
+                "impact":
+                [
+                    {
+                        "property":"Regulation",
+                        "propertyValue": "Decreased"
+                    }
+                ]
+            },
+            {
+                "text":"Congress last month to give the agency more authority to better police crypto trading.",
+                "details":
+                [
+                    {
+                        "slot":"Congress",
+                        "slotValue":"Regulatory Agency"
+                    }
+                ],
+                "impact":
+                [
+                    {
+                        "property":"Regulation",
+                        "propertyValue": "Increased"
+                    }
+                ]
+            }
+        ],
+        "metadata":{
+            "headline": "U.S. SEC investigates crypto exchange developer Uniswap Labs - WSJ",
+            "date": "09/23/2021",
+            "source": "Reuters"
+        }
+    }
+}
