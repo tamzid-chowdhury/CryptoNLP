@@ -62,9 +62,9 @@ function TestPage(props) {
         <Box h="285vh">
             <Box h="5vh">
             <Grid templateColumns="2fr 13fr 1fr">
-                <Box ></Box>
-                    {currentSection == "regulation" && <MotionText variants={menuVariants} initial="hidden" animate="visible" exit="hidden" color="lightgrey" borderBottom="1px" marginTop="2vh" fontSize="4xl">NLP CRYPTO: {currentSection.toUpperCase()}</MotionText>}
-                    {currentSection == "institutional investment" && <MotionBox variants={menuVariants} initial="hidden" animate="visible" exit="hidden" color="lightgrey" borderBottom="1px" marginTop="2vh" fontSize="4xl">NLP CRYPTO: {currentSection.toUpperCase()}</MotionBox>}
+                <Box></Box>
+                    {currentSection == "regulation" && <MotionText variants={menuVariants} initial="hidden" animate="visible" exit="hidden" color="white" marginTop="2vh" fontSize="4xl" borderBottom="1px">NLP CRYPTO: {currentSection.toUpperCase()}</MotionText>}
+                    {currentSection == "institutional investment" && <MotionBox variants={menuVariants} initial="hidden" animate="visible" exit="hidden" color="white" marginTop="2vh" borderBottom="1px" fontSize="4xl">NLP CRYPTO: {currentSection.toUpperCase()}</MotionBox>}
                 <Box></Box>
             </Grid>
                 <MotionBox whileHover={{scale:1.05}} variants={menuVariants} initial="hidden" animate="visible" exit="hidden" w="7vw" h="13vh" bgColor="rgb(32, 40, 53, 0.5)" borderRightRadius="5%" top="4vh"position="fixed">
