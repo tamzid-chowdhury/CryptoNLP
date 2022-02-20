@@ -11,7 +11,6 @@ import {
 import { Box, Text, Grid, Center, Icon, Tooltip, VStack , HStack, Button, Input, FormLabel, InputGroup, InputLeftAddon, Drawer, DrawerBody,
   DrawerContent,Image, DrawerOverlay, DrawerCloseButton, DrawerHeader, Stack, Select, Textarea, DrawerFooter, InputRightAddon, useDisclosure, AspectRatio} from '@chakra-ui/react';
 
-import ParticleBackground from './ParticleBackground';
 import TestPage from './TestPage';
 import './App.css'
 import LandingPage from './LandingPage';
@@ -43,7 +42,6 @@ const App = () => {
 
   return (
     <Box w='100%' bgGradient='linear(to-t, #09203F, #537895)'>
-      {/* <ParticleBackground/> */}
         <AnimatePresence exitBeforeEnter>
           <Switch location={location} key={location.pathname}>
             <Route exact path='/'><LandingPage onOpen={onOpen}/></Route>

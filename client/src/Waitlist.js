@@ -11,8 +11,6 @@ import {
 } from 'react-router-dom';
 import { Box, Alert, AlertIcon, AlertTitle, AlertDescription, Text, Grid, Center, Checkbox, CheckboxGroup, Icon, Tooltip, VStack , HStack, Button, Input, FormLabel, InputGroup, InputLeftAddon, Drawer, DrawerBody,
   DrawerContent, FormControl, FormErrorMessage, DrawerOverlay, DrawerCloseButton, DrawerHeader, Stack, Select, Textarea, DrawerFooter, InputRightAddon, useDisclosure, FormHelperText} from '@chakra-ui/react';
-
-import ParticleBackground from './ParticleBackground';
 import TestPage from './TestPage';
 import './App.css'
 import LandingPage from './LandingPage';

@@ -1,31 +1,6 @@
 import {React, useState, useEffect, createRef, useRef} from 'react';
 import { Box, Text, Grid, Center, Icon, Tooltip, VStack , Button, IconButton, HStack} from '@chakra-ui/react';
 import {motion, AnimatePresence, useAnimation} from 'framer-motion';
-import { useHistory } from 'react-router-dom';
-import ChartContainer from './ChartContainer.js'
-import BarChart1 from './BarChart1'
-import BarChart2 from './BarChart2'
-import { Bar } from 'react-chartjs-2';
-import { useInView } from 'react-intersection-observer'
-import "react-tabulator/lib/styles.css"; // default theme
-// --- Comment out the Theme you want to try:
-//import "react-tabulator/css/tabulator.min.css"; // default
-//import "react-tabulator/css/tabulator_modern.min.css"; // default
-// import "react-tabulator/css/bootstrap/tabulator_bootstrap.min.css"; // bootstrap
-//import "react-tabulator/css/bulma/tabulator_bulma.min.css"; // bulma
-//import "react-tabulator/css/semantic-ui/tabulator_semantic-ui.min.css"; // semantic
-//import "react-tabulator/css/materialize/tabulator_materialize.min.css"; // meterialize
-import "react-tabulator/css/tabulator_midnight.css"; // meterialize
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-import { MdLogin, MdHome } from 'react-icons/md';
-import Slider from "react-slick";
-
-import data from './Data.js'
-
-// for React 16.4.x use: import { ReactTabulator }
-import { ReactTabulator } from "react-tabulator"; // for React 15.x
-import { propsToOptions } from 'react-tabulator/lib/ConfigUtils';
 import RegulationPage from './RegulationPage';
 import InvestmentPage from './InvestmentPage';
 

@@ -11,7 +11,6 @@ import {
 import { Table, TableCaption, Td, Tr, Th, Thead, Tbody, Tfoot, Box, Text, Grid, Center, Icon, Tooltip, VStack , HStack, Button, Input, FormLabel, InputGroup, InputLeftAddon, Drawer, DrawerBody,
   DrawerContent, DrawerOverlay, DrawerCloseButton, DrawerHeader, Stack, Select, Textarea, DrawerFooter, InputRightAddon, useDisclosure} from '@chakra-ui/react';
 
-import ParticleBackground from './ParticleBackground';
 import TestPage from './TestPage';
 import './App.css'
 import LandingPage from './LandingPage';

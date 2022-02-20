@@ -11,7 +11,6 @@ import {
     useLocation,
     useHistory
 } from 'react-router-dom';
-import ParticleBackground from './ParticleBackground';
 
 import { createBreakpoints } from '@chakra-ui/theme-tools'
 import {AddIcon} from '@chakra-ui/icons'

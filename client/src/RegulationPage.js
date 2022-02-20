@@ -5,7 +5,6 @@ import {article1} from "./article1.json";
 import {article2} from "./article2.json";
 import { useHistory } from 'react-router-dom';
 import Article from './Article'
-import ChartContainer from './ChartContainer.js'
 import BarChart1 from './BarChart1'
 import BarChart2 from './BarChart2'
 import { Bar } from 'react-chartjs-2';
