@@ -1,14 +1,21 @@
 import {React, useState} from 'react';
-import { Box, Text, Grid, GridItem, Center, Icon, Button, Accordion, AccordionItem, AccordionIcon, AccordionButton, AccordionPanel, List, ListIcon, ListItem } from '@chakra-ui/react';
+import { Box, Text, Grid, GridItem, Center, Button, Accordion, AccordionItem, AccordionIcon, AccordionButton, AccordionPanel, List, ListIcon, ListItem } from '@chakra-ui/react';
 import { Tooltip } from '@chakra-ui/react'
 import {motion, AnimatePresence} from 'framer-motion';
 import {MdCheckCircle} from 'react-icons/md'
 import './App.css'
 
+//motion components to animate transitions
 const MotionBox = motion(Box);
 const MotionText = motion(Text);
 
 function Article(props) {
+
+    const textArray = props.article.textArr;
+    const title = props.article.title;
+    const extractions = props.article.extractions;
+    const metadata = props.article.metadata; 
+
 
     const [view, setView] = useState("full");
 
@@ -49,47 +56,24 @@ function Article(props) {
           }
         }
       };
-
-      const article1Variants = {
-        hidden: {
-          scale: 0,
-          opacity:0,
-         transition: {
-            type: "spring",
-            duration: 1,
-            ease: [0.83, 0, 0.17, 1]
-          }
-        },
-        visible: {
-          scale: 1,
-          opacity: 1,
-          transition: {
-            type: "spring",
-            duration: 1
-          }
-        }
-      };
-
-    const textArray = props.article.textArr;
-    const title = props.article.title;
-    const extractions = props.article.extractions;
-    const metadata = props.article.metadata; 
-
     return (
         <MotionBox className="article" initial={{scale:0, opacity:0}} animate={{scale:1, opacity:1}} transition={{duration:0.5}} marginTop="6vh" w="38vw" h="80vh" bgColor="#1b222d" borderRadius="4%" overflow="scroll">
-            {view == "full" ? 
-            <Box>
-            <Button colorScheme="blue" top="8px" left="15px" size='xs' onClick={() => {setView("extractions")}}>
+            {view == "full" && <Button colorScheme="blue" top="8px" left="15px" size='sm' fontSize="lg" color="white" onClick={() => {setView("extractions")}}>
                 View Extractions
-            </Button>
-                <MotionBox variants={articleVariants} initial="hidden" animate="visible" bgGradient='linear(to-l, #63B3ED, #2C5282)' color="white" textAlign="center" marginTop="17px" fontSize="28px">{title}</MotionBox>
-                <AnimatePresence>
+            </Button>}
+            {view == "extractions" && <Button colorScheme="blue" top="8px" left="15px" size='sm' fontSize="lg" color="white"  onClick={() => {setView("full")}} >
+                View Full Article
+            </Button>}
+            {view == "full" && 
+            <Box>
+                <AnimatePresence exitBeforeEnter>
+                <MotionText variants={articleVariants} initial="hidden" animate="visible" bgGradient='linear(to-l, #63B3ED, #2C5282)' color="white" textAlign="center" marginTop="17px" fontSize="3xl">{title}</MotionText>
                     {<MotionBox variants={metadataVariants} initial="hidden" animate="visible" exit="hidden" margin="30px" color="white" fontSize="22px">
                         {
                             textArray.map((text) => {
                             if(text.type == "normal"){
                                 return (
-                                    <span>{text.text}</span>
+                                    <span>{text. text}</span>
                                 )
                             }
                             if(text.type == "extraction"){
@@ -122,11 +106,9 @@ function Article(props) {
                     </MotionBox>}
                 </AnimatePresence>
             </Box>
-            :
+            }
+            {view == "extractions" &&
             <Box>
-            <Button colorScheme="blue" top="8px" left="15px" size='xs' onClick={() => {setView("full")}} >
-                View Full Article
-            </Button>
             <MotionText variants={metadataVariants} initial="hidden" animate="visible"  bgGradient='linear(to-l, #63B3ED, #2C5282)' color="white" textAlign="center" marginTop="17px" fontSize="28px">Extractions</MotionText>
             <AnimatePresence>
             <MotionText variants={articleVariants} initial="hidden" animate="visible" margin="30px" color="white">

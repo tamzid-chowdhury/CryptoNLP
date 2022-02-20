@@ -1,10 +1,7 @@
 import {React, useState, useEffect, createRef, useRef} from 'react';
 import { Box, Text, Grid, Center, Icon, Tooltip, VStack , Button, IconButton, HStack} from '@chakra-ui/react';
 import {motion, AnimatePresence, useAnimation} from 'framer-motion';
-import {article1} from "./article1.json";
-import {article2} from "./article2.json";
 import { useHistory } from 'react-router-dom';
-import Article from './Article'
 import ChartContainer from './ChartContainer.js'
 import BarChart1 from './BarChart1'
 import BarChart2 from './BarChart2'
@@ -65,9 +62,9 @@ function TestPage(props) {
         <Box h="285vh">
             <Box h="5vh">
             <Grid templateColumns="2fr 13fr 1fr">
-                <Box></Box>
-                    {currentSection == "regulation" && <MotionText variants={menuVariants} initial="hidden" animate="visible" exit="hidden" color="white" marginTop="2vh" fontSize="4xl">NLP CRYPTO: {currentSection.toUpperCase()}</MotionText>}
-                    {currentSection == "institutional investment" && <MotionBox variants={menuVariants} initial="hidden" animate="visible" exit="hidden" color="white" marginTop="2vh" fontSize="4xl">NLP CRYPTO: {currentSection.toUpperCase()}</MotionBox>}
+                <Box ></Box>
+                    {currentSection == "regulation" && <MotionText variants={menuVariants} initial="hidden" animate="visible" exit="hidden" color="lightgrey" borderBottom="1px" marginTop="2vh" fontSize="4xl">NLP CRYPTO: {currentSection.toUpperCase()}</MotionText>}
+                    {currentSection == "institutional investment" && <MotionBox variants={menuVariants} initial="hidden" animate="visible" exit="hidden" color="lightgrey" borderBottom="1px" marginTop="2vh" fontSize="4xl">NLP CRYPTO: {currentSection.toUpperCase()}</MotionBox>}
                 <Box></Box>
             </Grid>
                 <MotionBox whileHover={{scale:1.05}} variants={menuVariants} initial="hidden" animate="visible" exit="hidden" w="7vw" h="13vh" bgColor="rgb(32, 40, 53, 0.5)" borderRightRadius="5%" top="4vh"position="fixed">

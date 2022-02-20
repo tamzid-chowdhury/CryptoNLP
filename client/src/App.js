@@ -9,7 +9,7 @@ import {
     useLocation
 } from 'react-router-dom';
 import { Box, Text, Grid, Center, Icon, Tooltip, VStack , HStack, Button, Input, FormLabel, InputGroup, InputLeftAddon, Drawer, DrawerBody,
-  DrawerContent, DrawerOverlay, DrawerCloseButton, DrawerHeader, Stack, Select, Textarea, DrawerFooter, InputRightAddon, useDisclosure} from '@chakra-ui/react';
+  DrawerContent,Image, DrawerOverlay, DrawerCloseButton, DrawerHeader, Stack, Select, Textarea, DrawerFooter, InputRightAddon, useDisclosure, AspectRatio} from '@chakra-ui/react';
 
 import ParticleBackground from './ParticleBackground';
 import TestPage from './TestPage';
@@ -19,6 +19,8 @@ import {motion, AnimatePresence, useAnimation} from 'framer-motion';
 import Stats from './Stats';
 import Waitlist from './Waitlist.js'
 import { extendTheme } from '@chakra-ui/react';
+import '.'
+import gif from './crypto_vid.gif'
 
 const App = () => {
   

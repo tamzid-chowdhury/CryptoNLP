@@ -70,7 +70,7 @@ function LandingPage(props) {
           <MotionBox variants={titleVariants} initial="hidden" animate="visible" exit="hidden" h="100vh" color="white">
                 <Center position="relative" top="35vh">
                     <VStack spacing={3}>
-                    <MotionBox variants={titleVariants} initial="hidden" animate="visible" exit="hidden" className="titlefont" fontSize={{ base: '15px', md: '40px', lg: '50px' }}>Understand <Box as="span" color="red.300">Crypto </Box>Like Never Before</MotionBox>
+                    <MotionBox as="text" noOfLines={[1, 2, 3]} variants={titleVariants} initial="hidden" animate="visible" exit="hidden" className="titlefont" fontSize={{ base: '15px', md: '40px', lg: '50px' }}>Understand <Box as="span" color="red.300">Crypto </Box>Like Never Before</MotionBox>
                     <MotionBox variants={titleVariants} initial="hidden" animate="visible" exit="hidden" className="titlefont" fontSize={{ base: '11px', md: '25px', lg: '40px' }}>Utilizing <Box as="span" color="red.300">NLP</Box> to Understand the<Box as="span" color="red.300"> Global Crypto Market</Box></MotionBox>
                     </VStack>
                 </Center>

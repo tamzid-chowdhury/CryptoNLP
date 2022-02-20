@@ -9,7 +9,7 @@ import {
     useLocation,
     useHistory
 } from 'react-router-dom';
-import { Box, Text, Grid, Center, Checkbox, CheckboxGroup, Icon, Tooltip, VStack , HStack, Button, Input, FormLabel, InputGroup, InputLeftAddon, Drawer, DrawerBody,
+import { Box, Alert, AlertIcon, AlertTitle, AlertDescription, Text, Grid, Center, Checkbox, CheckboxGroup, Icon, Tooltip, VStack , HStack, Button, Input, FormLabel, InputGroup, InputLeftAddon, Drawer, DrawerBody,
   DrawerContent, FormControl, FormErrorMessage, DrawerOverlay, DrawerCloseButton, DrawerHeader, Stack, Select, Textarea, DrawerFooter, InputRightAddon, useDisclosure, FormHelperText} from '@chakra-ui/react';
 
 import ParticleBackground from './ParticleBackground';
@@ -33,7 +33,7 @@ const Waitlist = ({ isOpen, onOpen, onClose, submitted, setSubmitted}) => {
             setTimeout(() => {
                 onClose()
                 setShowClosing(false)
-            },2000)   
+            },4000)   
         }
       }, [submitted])
 
@@ -246,8 +246,24 @@ const Waitlist = ({ isOpen, onOpen, onClose, submitted, setSubmitted}) => {
             </DrawerBody> : 
             <DrawerBody borderTop="1px">
                 <Box marginTop="30vh">
-                    <Text textAlign="center" fontSize="20px">Thank you {firstName} for joining the waitlist!</Text>
-                    {showClosing && <Text className="closing"  textAlign="center" fontSize="20px">Automatically closing in three seconds...</Text>}
+                                    <Alert
+                    status='success'
+                    variant='subtle'
+                    flexDirection='column'
+                    alignItems='center'
+                    justifyContent='center'
+                    textAlign='center'
+                    height='200px'
+                    >
+                    <AlertIcon boxSize='40px' mr={0} />
+                    <AlertTitle mt={4} mb={1} fontSize='lg'>
+                        Waitlist has been joined!
+                    </AlertTitle>
+                    <AlertDescription maxWidth='sm'>
+                        Thank you for your submission. Our team will get back to you soon.
+                        {showClosing && <Text className="closing"  textAlign="center" fontSize="20px">Automatically closing in three seconds...</Text>}
+                    </AlertDescription>
+                    </Alert>
                 </Box>
             </DrawerBody>}
 
