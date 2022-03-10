@@ -15,6 +15,8 @@ import {
 import { createBreakpoints } from '@chakra-ui/theme-tools'
 import {AddIcon} from '@chakra-ui/icons'
 import article from './images/article.gif'
+import graph from './images/graphs.gif'
+import table from './images/tables.gif'
 
 function LandingPage(props) {
     const MotionBox = motion(Box);
@@ -84,9 +86,10 @@ function LandingPage(props) {
                   <Text color="white">Scroll Down To Learn More</Text>
                 </Center>
           </MotionBox>
-          <MotionBox animate="visible" exit="hidden" h="120vh" color="white">
+          <MotionBox animate="visible" exit="hidden" h="240vh" color="white">
+          <Box h="1px" border='1px'></Box>
             <SimpleGrid columns={[1, null, 2]} top="5vh" position="relative">
-              <Box height='50vh' marginLeft={["0vh","30vh"]}>
+              <Box height='20vh' marginLeft={["0vh","30vh"]}>
                 <Text fontSize={["xl","6xl"]} as="b">
                   Read Only What You Need To And None Of What You Don't. 
                 </Text>
@@ -96,6 +99,34 @@ function LandingPage(props) {
               </Box>
               <Box height='50vh' marginLeft={["3vh","10vh"]} boxSize={['xs','xl']}>
                 <Image src={article} alt='Dan Abramov' />
+              </Box>
+            </SimpleGrid>
+            <Box h="1px" border='1px' position="relative" top="17vh"></Box>
+            <SimpleGrid columns={[1, null, 2]} top="23vh" position="relative">
+              <Box height='20vh' marginLeft={["0vh","30vh"]}>
+                <Text fontSize={["xl","6xl"]} as="b">
+                  Get Rid of the Noise and Easily Leverage Actionable Insights.
+                </Text>
+                <Text fontSize={["sm","2xl"]} as="b">
+                <br />  Analyze data with responsive graphs that shrink and expand in a blink.
+                </Text>
+              </Box>
+              <Box height='50vh' marginLeft={["3vh","10vh"]} boxSize={['xs','xl']}>
+                <Image src={graph} alt='Dan Abramov' />
+              </Box>
+            </SimpleGrid>
+            <Box h="1px" border='1px' position="relative" top="10vh"></Box>
+            <SimpleGrid columns={[1, null, 2]} top="20vh" position="relative">
+              <Box height='20vh' marginLeft={["0vh","30vh"]}>
+                <Text fontSize={["xl","6xl"]} as="b">
+                  Aggregate Everything You Want in One Place
+                </Text>
+                <Text fontSize={["sm","2xl"]} as="b">
+                <br /> Easy to use tables that sort and filter through extractions and data.
+                </Text>
+              </Box>
+              <Box height='20vh' marginLeft={["3vh","10vh"]} boxSize={['xs','3xl']}>
+                <Image src={table} alt='Dan Abramov' />
               </Box>
             </SimpleGrid>
           </MotionBox>
