@@ -42,7 +42,7 @@ function TestPage(props) {
                     {currentSection == "institutional investment" && <MotionBox variants={menuVariants} initial="hidden" animate="visible" exit="hidden" color="white" marginTop="2vh" borderBottom="1px" fontSize="4xl">NLP CRYPTO: {currentSection.toUpperCase()}</MotionBox>}
                 <Box></Box>
             </Grid>
-                <MotionBox whileHover={{scale:1.05}} variants={menuVariants} initial="hidden" animate="visible" exit="hidden" w="7vw" h="13vh" bgColor="rgb(32, 40, 53, 0.5)" borderRightRadius="5%" top="4vh"position="fixed">
+                {/* <MotionBox whileHover={{scale:1.05}} variants={menuVariants} initial="hidden" animate="visible" exit="hidden" w="7vw" h="13vh" bgColor="rgb(32, 40, 53, 0.5)" borderRightRadius="5%" top="4vh"position="fixed">
                     <Box margin="10px">
                         <VStack color="white" spacing='2px'>
                             <Text borderBottom="1px" variant='ghost' _hover={{color:"white"}}>Choose a Topic</Text>
@@ -50,7 +50,7 @@ function TestPage(props) {
                             <Text as='b' textAlign="center" variant='ghost' _hover={{color:"#E1D9D1"}} onClick={() => {setCurrentSection("institutional investment")}} color={currentSection == "institutional investment" ? "red.300":"white"}> Institutional Investment</Text>
                         </VStack>
                     </Box>
-                </MotionBox>
+                </MotionBox> */}
             </Box>
             {currentSection == "regulation" && <RegulationPage onOpen={props.onOpen}/>}
             {currentSection == "institutional investment" && <InvestmentPage onOpen={props.onOpen}/>}

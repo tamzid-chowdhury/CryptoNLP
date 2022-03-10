@@ -283,9 +283,9 @@ function RegulationPage(props) {
       return (
         <>
         <Grid ref={articleRef} templateColumns="2fr 6fr 1fr 6fr 1fr" h="110vh">
-            <MotionBox whileHover={{scale:1.05}} variants={menuVariants} initial="hidden" animate="visible" exit="hidden" w="7.5vw" h="18vh" bgColor="rgb(32, 40, 53, 0.5)" borderRightRadius="5%" top="20vh"position="fixed">
+            <MotionBox whileHover={{scale:1.05}} variants={menuVariants} initial="hidden" animate="visible" exit="hidden" w="7.5vw" h="18vh" bgColor="rgb(32, 40, 53, 0.5)" borderRightRadius="5%" top="5vh"position="fixed">
                 <Box margin="10px">
-                    <VStack color="white" spacing='2px'>
+                    <VStack color="white" spacing='2px' >
                         <Button variant='ghost' _hover={{color:"#E1D9D1"}} onClick={() => handleScrollArticle()} color={currentSection == "rel" ? "blue.300":"white"} >Relevent Articles</Button>
                         <Button variant='ghost' _hover={{color:"#E1D9D1"}} onClick={() => handleScrollGraph()} color={currentSection == "gph" ? "blue.300":"white"}>Analytic Graphs</Button>
                         <Button variant='ghost'_hover={{color:"#E1D9D1"}} onClick={() => handleScrollTable()} color={currentSection == "tbl" ? "blue.300":"white"}>Extraction Table</Button>

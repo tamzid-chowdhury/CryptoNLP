@@ -220,7 +220,7 @@ const Waitlist = ({ isOpen, onOpen, onClose, submitted, setSubmitted}) => {
                 <Box>
                     <FormControl>
                     <FormLabel fontSize="lg" htmlFor='username'>Position in Company</FormLabel>
-                    <Select _focus={{borderColor:"white"}}  bg="#1b222d"  variant="filled" borderColor="lightgrey" _hover={{borderColor:"grey"}} placeholder="Select a role" h="45px" value={position} onChange={(event) => setPosition(event.target.value)} borderRadius="5px 0px 0px 5px" _focus={{boxShadow:"none"}} > 
+                    <Select _focus={{borderColor:"white"}}  bg="#1b222d"  variant="filled" borderColor="lightgrey" _hover={{borderColor:"grey"}} placeholder="Select a role" h="45px" value={position} onChange={(event) => setPosition(event.target.value)} borderRadius="5px 0px 0px 5px" > 
                         {positionOptions.map((pos, index) => {
                             return <option style={{color:"black"}} key={index}> {pos} </option>
                         })}
@@ -243,7 +243,7 @@ const Waitlist = ({ isOpen, onOpen, onClose, submitted, setSubmitted}) => {
                 </Stack>
             </DrawerBody> : 
             <DrawerBody borderTop="1px">
-                <Box marginTop="30vh">
+                <Box marginTop={["20vh","30vh"]}>
                                     <Alert
                     status='success'
                     variant='subtle'
@@ -254,10 +254,10 @@ const Waitlist = ({ isOpen, onOpen, onClose, submitted, setSubmitted}) => {
                     height='200px'
                     >
                     <AlertIcon boxSize='40px' mr={0} />
-                    <AlertTitle mt={4} mb={1} fontSize='lg'>
+                    <AlertTitle color="black" mt={4} mb={1} fontSize='lg'>
                         Waitlist has been joined!
                     </AlertTitle>
-                    <AlertDescription maxWidth='sm'>
+                    <AlertDescription color="black" maxWidth='sm'>
                         Thank you for your submission. Our team will get back to you soon.
                         {showClosing && <Text className="closing"  textAlign="center" fontSize="20px">Automatically closing in three seconds...</Text>}
                     </AlertDescription>
