@@ -36,7 +36,7 @@ function Stats() {
     }
 
     return (
-        <Box h="110vh" w="100vw" bg="#537895"> 
+        <Box h="110vh" w="100vw" bg="#537895" overflow="scroll"> 
         <Center><Box position="relative" top="1vh" fontSize="xxx-large" color="red.300" h="10vh">Waitlist ({clients.length})</Box></Center>
         <Center><Box h="95vh" w="90%" overflow="visible">
             <Table size='sm'>
